@@ -15,6 +15,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html, body {
+            overflow-x: hidden; /* Prevents horizontal scroll from 100vw elements */
+            width: 100%;
+        }
+
         body {
             background-color: #f8fafc;
             display: flex;
@@ -36,7 +41,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            margin-bottom: 60px; /* Space between hero and reviews */
+            margin-bottom: 60px;
         }
 
         /* Left Section (Hero Content) */
@@ -116,6 +121,8 @@
             align-items: center;
             font-size: 14px;
             color: #64748b;
+            flex-wrap: wrap;
+            gap: 5px;
         }
 
         .stars {
@@ -294,7 +301,7 @@
             position: relative;
             display: flex;
             justify-content: center; 
-            margin-bottom: 60px; /* Added margin to separate from treatments */
+            margin-bottom: 60px;
         }
 
         .reviews-card {
@@ -348,6 +355,8 @@
             font-size: 14px;
             color: #64748b;
             margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .google-summary .score {
@@ -445,7 +454,7 @@
             width: 100%;
             max-width: 1200px;
             padding: 20px 0;
-            margin-bottom: 60px; /* Added margin to separate from new section */
+            margin-bottom: 60px;
         }
 
         .treatments-header {
@@ -484,7 +493,6 @@
             background: #ffffff;
             border-radius: 16px;
             padding: 15px;
-            /* Box shadow hata diya hai kyu ki image mein flat design lag raha hai, agar chahiye toh laga sakte hain */
         }
 
         .treatment-image-box {
@@ -531,7 +539,7 @@
             color: #64748b;
             line-height: 1.5;
             margin-bottom: 20px;
-            min-height: 42px; /* To keep tags aligned */
+            min-height: 42px;
         }
 
         .treatment-tags {
@@ -600,8 +608,8 @@
             padding: 40px 0 60px 0;
             background-color: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Subtle shadow for section */
-            margin-bottom: 60px; /* Added margin to separate from founders */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            margin-bottom: 60px;
         }
 
         .difference-title {
@@ -715,7 +723,7 @@
             border-radius: 12px;
             overflow: hidden;
             flex-shrink: 0;
-            background-color: #f8fafc; /* Light background for image */
+            background-color: #f8fafc;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -725,7 +733,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Image positioning to match the cut-out look */
             object-position: top center;
         }
 
@@ -871,7 +878,7 @@
         }
 
         .step-card {
-            background-color: #f8fafc; /* Very light background matching image */
+            background-color: #f8fafc;
             border: 1px solid #f1f5f9;
             border-radius: 12px;
             padding: 30px;
@@ -953,7 +960,7 @@
             overflow: hidden;
             aspect-ratio: 16 / 9;
             cursor: pointer;
-            background-color: #e2e8f0; /* Fallback */
+            background-color: #e2e8f0;
         }
 
         .story-card img {
@@ -991,10 +998,9 @@
         .play-btn i {
             color: #3b82f6;
             font-size: 24px;
-            margin-left: 4px; /* Visually center the play icon */
+            margin-left: 4px;
         }
 
-        /* Text Overlays based on the image */
         .story-text-overlay {
             position: absolute;
             bottom: 20px;
@@ -1003,7 +1009,7 @@
         }
 
         .story-text-overlay .highlight-text {
-            background-color: rgba(74, 222, 128, 0.9); /* Green */
+            background-color: rgba(74, 222, 128, 0.9);
             color: white;
             font-weight: 800;
             font-size: 18px;
@@ -1076,13 +1082,10 @@
             padding: 15px;
         }
 
-        /* Green Testimonial Cards */
         .reel-card.green {
             background-color: #7bc043;
-            /* Faking the torn paper effect with a subtle gradient or just solid color as per request */
         }
 
-        /* Blue Journey Card */
         .reel-card.blue {
             background-color: #2b7a9e;
             justify-content: flex-start;
@@ -1155,7 +1158,6 @@
             color: rgba(255,255,255,0.7);
         }
 
-        /* Blue Card Specific */
         .blue-card-text-top {
             color: white;
             font-size: 14px;
@@ -1207,7 +1209,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Instagram Play Button Gradient */
         .ig-play-btn {
             position: absolute;
             top: 50%;
@@ -1282,7 +1283,6 @@
             z-index: 2;
         }
 
-        /* Diwali specific */
         .reel-card.diwali {
             background-color: #f0f8ff;
             justify-content: flex-start;
@@ -1313,12 +1313,10 @@
             display: block;
         }
 
-        /* Seniors specific */
         .reel-card.seniors {
             background-image: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=400&auto=format&fit=crop');
         }
 
-        /* Early Intervention specific */
         .reel-card.early {
             background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&auto=format&fit=crop');
         }
@@ -1411,7 +1409,6 @@
             background-color: #16a34a;
         }
 
-        /* Special Guide Box */
         .clinic-guide-box {
             background-color: #f0f9ff;
             border-radius: 12px;
@@ -1629,9 +1626,8 @@
             width: 100vw;
             position: relative;
             left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+            transform: translateX(-50%);
+            margin: 0;
             background-color: #3b82f6;
             padding: 60px 20px;
             text-align: center;
@@ -1690,6 +1686,7 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             transition: background-color 0.2s;
         }
@@ -1714,9 +1711,8 @@
             width: 100vw;
             position: relative;
             left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+            transform: translateX(-50%);
+            margin: 0;
             background-color: #0f172a;
             padding: 60px 20px;
             color: #94a3b8;
@@ -1798,13 +1794,19 @@
             color: white;
         }
 
-        /* Responsive Design */
+        /* =========================================
+           RESPONSIVE DESIGN (Mobile & Tablet)
+           ========================================= */
+        
+        /* Tablet Layout (1024px and below) */
         @media (max-width: 1024px) {
-            .treatments-grid {
+            .treatments-grid,
+            .difference-grid,
+            .instagram-grid,
+            .clinics-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .difference-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 40px 20px;
             }
             .founders-grid {
@@ -1812,14 +1814,16 @@
                 gap: 50px;
                 padding: 0 20px;
             }
-            .instagram-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
             }
-            .clinics-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-col:first-child {
+                grid-column: span 2;
             }
         }
 
+        /* Small Tablet / Large Mobile (900px and below) */
         @media (max-width: 900px) {
             .main-container {
                 flex-direction: column;
@@ -1831,15 +1835,24 @@
                 padding: 20px;
             }
             h1 {
-                font-size: 36px;
+                font-size: 38px;
             }
             .reviews-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .about-section, .choose-clinic-section, .faq-section {
+                padding: 40px 15px;
+            }
         }
 
+        /* Mobile Layout (768px and below) */
         @media (max-width: 768px) {
-            .treatments-grid {
+            body {
+                padding: 20px 15px;
+            }
+            .treatments-grid,
+            .steps-grid,
+            .stories-grid {
                 grid-template-columns: 1fr;
             }
             .founder-card {
@@ -1850,20 +1863,15 @@
             .founder-tags {
                 justify-content: center;
             }
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
             .footer-container {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 40px;
             }
-            .contact-item {
-                justify-content: center;
+            .footer-col:first-child {
+                grid-column: span 1;
             }
+            .contact-item,
             .footer-logo {
                 justify-content: center;
             }
@@ -1874,61 +1882,37 @@
             .btn-white, .btn-whatsapp {
                 width: 100%;
                 max-width: 300px;
-                justify-content: center;
+            }
+            .main-container, .reviews-wrapper, .treatments-section, .difference-section, .founders-section, .about-section, .steps-section, .patient-stories-section, .instagram-section, .clinics-section, .choose-clinic-section, .faq-section {
+                margin-bottom: 40px;
             }
         }
 
+        /* Small Mobile (600px and below) */
         @media (max-width: 600px) {
-            .reviews-grid {
+            .reviews-grid, .difference-grid, .instagram-grid, .clinics-grid {
                 grid-template-columns: 1fr;
             }
             .reviews-card {
                 padding: 30px 20px;
             }
-            .reviews-title {
-                font-size: 24px;
-            }
-            .treatments-title {
-                font-size: 28px;
-            }
-            .difference-title {
+            .reviews-title, .treatments-title, .difference-title, .founders-title, .about-title, .steps-title, .patient-stories-title, .instagram-title, .clinics-title, .choose-title, .faq-title {
                 font-size: 26px;
             }
-            .difference-grid {
-                grid-template-columns: 1fr;
-            }
-            .founders-title {
-                font-size: 28px;
-            }
-            .about-title {
-                font-size: 28px;
-            }
-            .steps-title {
-                font-size: 28px;
-            }
-            .patient-stories-title {
-                font-size: 28px;
-            }
-            .instagram-title {
-                font-size: 28px;
-            }
-            .instagram-grid {
-                grid-template-columns: 1fr;
-            }
-            .clinics-title {
-                font-size: 28px;
-            }
-            .clinics-grid {
-                grid-template-columns: 1fr;
-            }
-            .choose-title {
-                font-size: 28px;
-            }
-            .faq-title {
-                font-size: 28px;
-            }
             .cta-title {
-                font-size: 28px;
+                font-size: 24px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .form-section {
+                padding: 15px;
+            }
+            .booking-card, .choose-item, .step-card {
+                padding: 20px;
+            }
+            .cta-section, .footer-section {
+                padding: 40px 15px;
             }
         }
     </style>
@@ -2235,10 +2219,9 @@
                 </div>
             </div>
 
-            <!-- Treatment 4 (NEW - Cosmetic Dentistry) -->
+            <!-- Treatment 4 -->
             <div class="treatment-card">
                 <div class="treatment-image-box">
-                    <!-- Placeholder Image -->
                     <img src="https://images.unsplash.com/photo-1606265752439-1f18c629f164?q=80&w=600&auto=format&fit=crop" alt="Cosmetic Dentistry">
                     <span class="image-tag">Smile Makeover</span>
                 </div>
@@ -2257,10 +2240,9 @@
                 </div>
             </div>
 
-            <!-- Treatment 5 (NEW - Crowns & Bridges) -->
+            <!-- Treatment 5 -->
             <div class="treatment-card">
                 <div class="treatment-image-box">
-                    <!-- Placeholder Image -->
                     <img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?q=80&w=600&auto=format&fit=crop" alt="Crowns & Bridges">
                     <span class="image-tag">CAD/CAM</span>
                 </div>
@@ -2279,10 +2261,9 @@
                 </div>
             </div>
 
-            <!-- Treatment 6 (NEW - Dentures) -->
+            <!-- Treatment 6 -->
             <div class="treatment-card">
                 <div class="treatment-image-box">
-                    <!-- Placeholder Image -->
                     <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Dentures">
                     <span class="image-tag">Digital</span>
                 </div>
@@ -2359,7 +2340,6 @@
             <!-- Founder 1 -->
             <div class="founder-card">
                 <div class="founder-image-box">
-                    <!-- Placeholder for Dr Amit -->
                     <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=300&auto=format&fit=crop" alt="Dr. Amit Anand">
                 </div>
                 <div class="founder-info">
@@ -2376,7 +2356,6 @@
             <!-- Founder 2 -->
             <div class="founder-card">
                 <div class="founder-image-box">
-                    <!-- Placeholder for Dr Arpita -->
                     <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop" alt="Dr. Arpita Anand">
                 </div>
                 <div class="founder-info">
@@ -2470,7 +2449,6 @@
             <div class="story-card">
                 <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Dental Implants Video">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                <!-- Optional overlay text for right image -->
                 <div class="story-text-overlay" style="bottom: 20px; left: 20px;">
                      <span style="font-size: 12px; text-transform: uppercase; color: white; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Understanding</span><br>
                      <span style="font-size: 24px; font-weight: 800; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">Dental Implants</span>
