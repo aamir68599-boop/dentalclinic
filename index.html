@@ -1785,7 +1785,7 @@
         }
 
         /* =========================================
-           NEW JOURNEY MODAL CSS (Gamified Form)
+           GAMIFIED JOURNEY MODAL (Smooth & Engaging)
            ========================================= */
         .modal-overlay {
             position: fixed;
@@ -1793,12 +1793,19 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(3px);
-            display: none; /* Hidden by default */
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(4px);
+            display: none; 
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
         }
 
         .journey-modal {
@@ -1807,10 +1814,16 @@
             max-width: 480px;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
+            transform: translateY(20px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .journey-modal {
+            transform: translateY(0) scale(1);
         }
 
         .journey-header {
@@ -1831,6 +1844,13 @@
             color: white;
             font-size: 16px;
             flex-shrink: 0;
+            animation: popCheck 0.5s ease-out;
+        }
+
+        @keyframes popCheck {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
         .journey-title h3 {
@@ -1850,11 +1870,19 @@
             align-items: center;
             gap: 15px;
             margin-bottom: 25px;
+            min-height: 60px;
         }
 
         .mascot-icon {
             font-size: 40px;
             line-height: 1;
+            animation: floatTooth 3s ease-in-out infinite;
+        }
+
+        @keyframes floatTooth {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
         }
 
         .speech-bubble {
@@ -1867,6 +1895,12 @@
             color: #166534;
             font-weight: 500;
             flex: 1;
+            animation: popIn 0.4s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .progress-container {
@@ -1884,6 +1918,7 @@
 
         .points-badge {
             color: #eab308;
+            transition: color 0.3s ease;
         }
 
         .progress-bar-bg {
@@ -1897,8 +1932,8 @@
         .progress-bar-fill {
             height: 100%;
             background-color: #22c55e;
-            width: 10%; /* Dynamic */
-            transition: width 0.3s ease;
+            width: 11%; /* Dynamic */
+            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy progress */
         }
 
         .profile-strength {
@@ -1910,12 +1945,12 @@
         }
 
         .step-content {
-            animation: fadeIn 0.3s ease;
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(15px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         .step-title {
@@ -1938,8 +1973,14 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
+            transition: border-color 0.3s;
         }
         
+        .wa-input-group:focus-within {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
         .wa-prefix {
             padding: 12px 15px;
             background: #f8fafc;
@@ -1967,11 +2008,18 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
         }
 
         .primary-btn:hover {
             background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .primary-btn:active {
+            transform: translateY(0);
         }
 
         .radio-list {
@@ -1989,12 +2037,14 @@
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             background: #ffffff;
         }
 
         .radio-item:hover {
             background: #f8fafc;
+            border-color: #94a3b8;
+            transform: translateY(-1px);
         }
 
         .radio-item input[type="radio"] {
@@ -2022,23 +2072,25 @@
             background-color: #3b82f6;
             border-radius: 50%;
             display: none;
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .radio-item input[type="radio"]:checked ~ .radio-circle {
-            border-color: #3b82f6;
-        }
-
-        .radio-item input[type="radio"]:checked ~ .radio-circle::after {
-            display: block;
-        }
-
-        .radio-item input[type="radio"]:checked {
-            border-color: #3b82f6;
-        }
-        
+        /* When selected */
         .radio-item.selected {
             border-color: #3b82f6;
+            background-color: #eff6ff;
             box-shadow: 0 0 0 1px #3b82f6;
+            transform: scale(1.02);
+        }
+
+        .radio-item.selected .radio-circle {
+            border-color: #3b82f6;
+        }
+
+        .radio-item.selected .radio-circle::after {
+            display: block;
+            transform: scale(1);
         }
 
         .radio-text {
@@ -2058,10 +2110,12 @@
             margin-top: 10px;
             text-align: left;
             display: inline-block;
+            transition: color 0.2s, transform 0.2s;
         }
 
         .back-btn:hover {
             color: #1e293b;
+            transform: translateX(-3px);
         }
 
         /* Responsive Design for Modal */
@@ -2636,12 +2690,18 @@
         // Prevent default form submission and open modal
         function openJourneyModal(event) {
             event.preventDefault();
-            document.getElementById('journey-modal').style.display = 'flex';
+            const modal = document.getElementById('journey-modal');
+            modal.style.display = 'flex';
+            // Small delay to allow display:flex to apply before adding active class for transition
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            
             // Reset to step 1 on new open
             goToStep(1);
         }
 
-        // Logic for switching steps
+        // Logic for switching steps with smooth animations
         function goToStep(step) {
             // Hide all steps
             document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
@@ -2649,6 +2709,10 @@
             // Show target step
             const targetStep = document.getElementById('step-' + step);
             if (targetStep) {
+                // Remove and re-add animation class to trigger animation
+                targetStep.style.animation = 'none';
+                targetStep.offsetHeight; /* trigger reflow */
+                targetStep.style.animation = null; 
                 targetStep.style.display = 'block';
             }
 
@@ -2660,27 +2724,32 @@
             const speechText = document.getElementById('speech-text');
             const mascotIcon = document.querySelector('.mascot-icon');
 
+            // Function to trigger speech bubble pop animation
+            const animateSpeech = (text) => {
+                speechText.style.animation = 'none';
+                speechText.offsetHeight; 
+                speechText.style.animation = 'popIn 0.4s ease-out';
+                speechText.innerText = text;
+            };
+
             if (step === 1) {
                 questionText.innerText = "Question 1 of 9";
                 pointsText.innerText = "+ 0 pts";
                 progressFill.style.width = "11%";
                 profileStrength.innerText = "PROFILE STRENGTH: STARTING";
-                speechText.innerText = "Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.";
-                mascotIcon.innerText = "🦷";
+                animateSpeech("Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.");
             } else if (step === 2) {
                 questionText.innerText = "Question 2 of 9";
                 pointsText.innerText = "+ 10 pts";
                 progressFill.style.width = "22%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
-                speechText.innerText = "Locked in! Your plan lands straight on WhatsApp.";
-                mascotIcon.innerText = "🦷";
+                animateSpeech("Locked in! Your plan lands straight on WhatsApp.");
             } else if (step === 3) {
                 questionText.innerText = "Question 3 of 9";
                 pointsText.innerText = "+ 20 pts";
                 progressFill.style.width = "33%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
-                speechText.innerText = "Aww — we're extra, extra gentle with kids.";
-                mascotIcon.innerText = "🦷";
+                animateSpeech("Aww — we're extra, extra gentle with kids.");
             }
         }
 
@@ -2699,7 +2768,7 @@
                     goToStep(3);
                 }
                 // If there was a step 4, we would add it here. For now, we stop at 3.
-            }, 300);
+            }, 450); // Increased delay slightly to let the user enjoy the selection animation
         }
     </script>
 </body>
