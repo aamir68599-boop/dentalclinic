@@ -16,7 +16,7 @@
         }
 
         html, body {
-            overflow-x: hidden; /* Prevents horizontal scroll from 100vw elements */
+            overflow-x: hidden;
             width: 100%;
         }
 
@@ -181,7 +181,7 @@
         }
 
         .form-group label span {
-            color: #ef4444; /* Red asterisk */
+            color: #ef4444;
         }
 
         .form-control {
@@ -200,7 +200,6 @@
             border-color: #3b82f6;
         }
 
-        /* Mobile Input Custom Styling */
         .mobile-input-group {
             display: flex;
             align-items: center;
@@ -231,7 +230,6 @@
             outline: none;
         }
 
-        /* Date Input Styling */
         .date-input-wrapper {
             position: relative;
         }
@@ -249,7 +247,6 @@
             pointer-events: none;
         }
 
-        /* Select Dropdown Styling */
         select.form-control {
             appearance: none;
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
@@ -289,7 +286,7 @@
         }
 
         .privacy-text i {
-            color: #10b981; /* Green lock */
+            color: #10b981;
         }
 
         /* =========================================
@@ -315,7 +312,6 @@
             z-index: 1;
         }
 
-        /* Header Section */
         .reviews-header {
             text-align: center;
             margin-bottom: 40px;
@@ -370,14 +366,12 @@
             font-size: 14px;
         }
 
-        /* Grid Layout */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px 20px;
         }
 
-        /* Individual Review Card */
         .review-item {
             padding: 10px;
             position: relative;
@@ -439,7 +433,6 @@
             line-height: 1.6;
         }
 
-        /* Avatar Colors */
         .bg-blue { background-color: #3b82f6; }
         .bg-green { background-color: #22c55e; }
         .bg-orange { background-color: #f59e0b; }
@@ -1237,9 +1230,6 @@
             margin-left: 3px;
         }
 
-        /* =========================================
-           NEW CUSTOM REEL CARDS (Tenth Part)
-           ========================================= */
         .reel-card.custom-bg {
             background-size: cover;
             background-position: center;
@@ -1795,125 +1785,341 @@
         }
 
         /* =========================================
-           RESPONSIVE DESIGN (Mobile & Tablet)
+           NEW JOURNEY MODAL CSS (Gamified Form)
            ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(3px);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .journey-modal {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .journey-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .check-circle {
+            width: 32px;
+            height: 32px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .journey-title h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .journey-title p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .mascot-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .mascot-icon {
+            font-size: 40px;
+            line-height: 1;
+        }
+
+        .speech-bubble {
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-top-left-radius: 0;
+            font-size: 13px;
+            color: #166534;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .progress-container {
+            margin-bottom: 25px;
+        }
+
+        .progress-text-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .points-badge {
+            color: #eab308;
+        }
+
+        .progress-bar-bg {
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #22c55e;
+            width: 10%; /* Dynamic */
+            transition: width 0.3s ease;
+        }
+
+        .profile-strength {
+            font-size: 10px;
+            font-weight: 700;
+            color: #3b82f6;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .step-content {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .wa-input-group {
+            display: flex;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
         
-        /* Tablet Layout (1024px and below) */
+        .wa-prefix {
+            padding: 12px 15px;
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+            border-right: 1px solid #cbd5e1;
+        }
+
+        .wa-input-group input {
+            border: none;
+            padding: 12px 15px;
+            font-size: 15px;
+            width: 100%;
+            outline: none;
+            color: #1e293b;
+        }
+
+        .primary-btn {
+            width: 100%;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .primary-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .radio-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .radio-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #ffffff;
+        }
+
+        .radio-item:hover {
+            background: #f8fafc;
+        }
+
+        .radio-item input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .radio-circle::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            display: none;
+        }
+
+        .radio-item input[type="radio"]:checked ~ .radio-circle {
+            border-color: #3b82f6;
+        }
+
+        .radio-item input[type="radio"]:checked ~ .radio-circle::after {
+            display: block;
+        }
+
+        .radio-item input[type="radio"]:checked {
+            border-color: #3b82f6;
+        }
+        
+        .radio-item.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 1px #3b82f6;
+        }
+
+        .radio-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 5px 0;
+            margin-top: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: #1e293b;
+        }
+
+        /* Responsive Design for Modal */
+        @media (max-width: 500px) {
+            .journey-modal {
+                padding: 20px;
+                border-radius: 12px;
+                width: 95%;
+            }
+            .mascot-icon { font-size: 32px; }
+            .speech-bubble { font-size: 12px; padding: 10px; }
+        }
+
+
+        /* =========================================
+           RESPONSIVE DESIGN (Main Page)
+           ========================================= */
         @media (max-width: 1024px) {
-            .treatments-grid,
-            .difference-grid,
-            .instagram-grid,
-            .clinics-grid {
+            .treatments-grid, .difference-grid, .instagram-grid, .clinics-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .difference-grid {
-                gap: 40px 20px;
-            }
-            .founders-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                padding: 0 20px;
-            }
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            .footer-col:first-child {
-                grid-column: span 2;
-            }
+            .difference-grid { gap: 40px 20px; }
+            .founders-grid { grid-template-columns: 1fr; gap: 50px; padding: 0 20px; }
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-col:first-child { grid-column: span 2; }
         }
 
-        /* Small Tablet / Large Mobile (900px and below) */
         @media (max-width: 900px) {
-            .main-container {
-                flex-direction: column;
-            }
-            .hero-section {
-                padding: 40px 30px;
-            }
-            .form-section {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 38px;
-            }
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .about-section, .choose-clinic-section, .faq-section {
-                padding: 40px 15px;
-            }
+            .main-container { flex-direction: column; }
+            .hero-section { padding: 40px 30px; }
+            .form-section { padding: 20px; }
+            h1 { font-size: 38px; }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-section, .choose-clinic-section, .faq-section { padding: 40px 15px; }
         }
 
-        /* Mobile Layout (768px and below) */
         @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-            .treatments-grid,
-            .steps-grid,
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
-            .founder-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .founder-tags {
-                justify-content: center;
-            }
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            .footer-col:first-child {
-                grid-column: span 1;
-            }
-            .contact-item,
-            .footer-logo {
-                justify-content: center;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn-white, .btn-whatsapp {
-                width: 100%;
-                max-width: 300px;
-            }
-            .main-container, .reviews-wrapper, .treatments-section, .difference-section, .founders-section, .about-section, .steps-section, .patient-stories-section, .instagram-section, .clinics-section, .choose-clinic-section, .faq-section {
-                margin-bottom: 40px;
-            }
+            body { padding: 20px 15px; }
+            .treatments-grid, .steps-grid, .stories-grid { grid-template-columns: 1fr; }
+            .founder-card { flex-direction: column; align-items: center; text-align: center; }
+            .founder-tags { justify-content: center; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .footer-col:first-child { grid-column: span 1; }
+            .contact-item, .footer-logo { justify-content: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn-white, .btn-whatsapp { width: 100%; max-width: 300px; }
+            .main-container, .reviews-wrapper, .treatments-section, .difference-section, .founders-section, .about-section, .steps-section, .patient-stories-section, .instagram-section, .clinics-section, .choose-clinic-section, .faq-section { margin-bottom: 40px; }
         }
 
-        /* Small Mobile (600px and below) */
         @media (max-width: 600px) {
-            .reviews-grid, .difference-grid, .instagram-grid, .clinics-grid {
-                grid-template-columns: 1fr;
-            }
-            .reviews-card {
-                padding: 30px 20px;
-            }
-            .reviews-title, .treatments-title, .difference-title, .founders-title, .about-title, .steps-title, .patient-stories-title, .instagram-title, .clinics-title, .choose-title, .faq-title {
-                font-size: 26px;
-            }
-            .cta-title {
-                font-size: 24px;
-            }
-            h1 {
-                font-size: 32px;
-            }
-            .form-section {
-                padding: 15px;
-            }
-            .booking-card, .choose-item, .step-card {
-                padding: 20px;
-            }
-            .cta-section, .footer-section {
-                padding: 40px 15px;
-            }
+            .reviews-grid, .difference-grid, .instagram-grid, .clinics-grid { grid-template-columns: 1fr; }
+            .reviews-card { padding: 30px 20px; }
+            .reviews-title, .treatments-title, .difference-title, .founders-title, .about-title, .steps-title, .patient-stories-title, .instagram-title, .clinics-title, .choose-title, .faq-title { font-size: 26px; }
+            .cta-title { font-size: 24px; }
+            h1 { font-size: 32px; }
+            .form-section { padding: 15px; }
+            .booking-card, .choose-item, .step-card { padding: 20px; }
+            .cta-section, .footer-section { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -1956,7 +2162,7 @@
                 <h2>Book Your Appointment</h2>
                 <p class="subtitle">We will call you back to confirm your slot at the clinic nearest to you.</p>
                 
-                <form action="#" method="POST">
+                <form id="booking-form" action="#" method="POST" onsubmit="openJourneyModal(event)">
                     <!-- Full Name -->
                     <div class="form-group">
                         <label>Full Name <span>*</span></label>
@@ -2013,7 +2219,6 @@
                 <h2 class="reviews-title">Why Lucknow Rates Us <span>4.9</span></h2>
                 
                 <div class="google-summary">
-                    <!-- Google G Logo SVG -->
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -2026,118 +2231,35 @@
                 </div>
             </div>
 
-            <!-- Reviews Grid -->
             <div class="reviews-grid">
-                <!-- Review 1 -->
+                <!-- Reviews Data -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-blue">S</div>
-                        <div class="user-info">
-                            <span class="user-name">Saumya Agrawal</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-blue">S</div><div class="user-info"><span class="user-name">Saumya Agrawal</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Very good clinic — my treatment was a completely painless experience. The doctors and staff genuinely care."</p>
                 </div>
-
-                <!-- Review 2 -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-green">R</div>
-                        <div class="user-info">
-                            <span class="user-name">Rajkumar Yadav</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-green">R</div><div class="user-info"><span class="user-name">Rajkumar Yadav</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Very experienced doctors and staff. I highly recommend RealTooth to everyone in Lucknow."</p>
                 </div>
-
-                <!-- Review 3 -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-orange">Y</div>
-                        <div class="user-info">
-                            <span class="user-name">Yash Kumar Soni</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-orange">Y</div><div class="user-info"><span class="user-name">Yash Kumar Soni</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Premium environment. Dr. Manisha Yadav explained my cosmetic procedure with complete clarity before we started."</p>
                 </div>
-
-                <!-- Review 4 -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-purple">S</div>
-                        <div class="user-info">
-                            <span class="user-name">Sunil Kumar</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-purple">S</div><div class="user-info"><span class="user-name">Sunil Kumar</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"For my aligners they showed me a digital preview of the result before starting. The improvement in my smile is remarkable."</p>
                 </div>
-
-                <!-- Review 5 -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-teal">N</div>
-                        <div class="user-info">
-                            <span class="user-name">Naincy Verma</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-teal">N</div><div class="user-info"><span class="user-name">Naincy Verma</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"My dental implant was handled with great precision and care. Completely satisfied with the result."</p>
                 </div>
-
-                <!-- Review 6 -->
                 <div class="review-item">
-                    <div class="review-top">
-                        <div class="avatar bg-red">H</div>
-                        <div class="user-info">
-                            <span class="user-name">Himanshu Sharma</span>
-                            <span class="review-source">Google Review</span>
-                        </div>
-                    </div>
-                    <svg class="google-logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
+                    <div class="review-top"><div class="avatar bg-red">H</div><div class="user-info"><span class="user-name">Himanshu Sharma</span><span class="review-source">Google Review</span></div></div>
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"My cavity filling was quick, comfortable and completely painless. In and out without any stress."</p>
                 </div>
@@ -2156,132 +2278,36 @@
         </div>
 
         <div class="treatments-grid">
-            <!-- Treatment 1 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600&auto=format&fit=crop" alt="Root Canal Treatment">
-                    <span class="image-tag">Painless</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Root Canal Treatment</h3>
-                    <p>Single-visit, painless RCT by endodontists.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">Painless</span>
-                        <span class="tag-green">Single Visit</span>
-                        <span class="tag-orange">By Endodontists</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600&auto=format&fit=crop" alt="Root Canal"><span class="image-tag">Painless</span></div>
+                <div class="treatment-content"><h3>Root Canal Treatment</h3><p>Single-visit, painless RCT by endodontists.</p><div class="treatment-tags"><span class="tag-blue">Painless</span><span class="tag-green">Single Visit</span><span class="tag-orange">By Endodontists</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
-            <!-- Treatment 2 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=600&auto=format&fit=crop" alt="Dental Implants">
-                    <span class="image-tag blue-text">From ₹25,000*</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Dental Implants</h3>
-                    <p>Permanent teeth by a Harvard & Zurich-trained implantologist.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">3D CT Planning</span>
-                        <span class="tag-green">EMI Available</span>
-                        <span class="tag-orange">10,000+ Cases</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=600&auto=format&fit=crop" alt="Implants"><span class="image-tag blue-text">From ₹25,000*</span></div>
+                <div class="treatment-content"><h3>Dental Implants</h3><p>Permanent teeth by a Harvard & Zurich-trained implantologist.</p><div class="treatment-tags"><span class="tag-blue">3D CT Planning</span><span class="tag-green">EMI Available</span><span class="tag-orange">10,000+ Cases</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
-            <!-- Treatment 3 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Braces & Aligners">
-                    <span class="image-tag">All Ages</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Braces & Aligners</h3>
-                    <p>Metal braces to invisible aligners, with a digital preview.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">Invisible Options</span>
-                        <span class="tag-green">Digital Preview</span>
-                        <span class="tag-orange">Orthodontists</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Braces"><span class="image-tag">All Ages</span></div>
+                <div class="treatment-content"><h3>Braces & Aligners</h3><p>Metal braces to invisible aligners, with a digital preview.</p><div class="treatment-tags"><span class="tag-blue">Invisible Options</span><span class="tag-green">Digital Preview</span><span class="tag-orange">Orthodontists</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
-            <!-- Treatment 4 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1606265752439-1f18c629f164?q=80&w=600&auto=format&fit=crop" alt="Cosmetic Dentistry">
-                    <span class="image-tag">Smile Makeover</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Whitening, veneers and complete smile makeovers.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">Whitening</span>
-                        <span class="tag-green">Veneers</span>
-                        <span class="tag-orange">Smile Design</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606265752439-1f18c629f164?q=80&w=600&auto=format&fit=crop" alt="Cosmetic"><span class="image-tag">Smile Makeover</span></div>
+                <div class="treatment-content"><h3>Cosmetic Dentistry</h3><p>Whitening, veneers and complete smile makeovers.</p><div class="treatment-tags"><span class="tag-blue">Whitening</span><span class="tag-green">Veneers</span><span class="tag-orange">Smile Design</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
-            <!-- Treatment 5 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?q=80&w=600&auto=format&fit=crop" alt="Crowns & Bridges">
-                    <span class="image-tag">CAD/CAM</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Crowns & Bridges</h3>
-                    <p>Precise, natural-looking crowns with a digital workflow.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">Shade Matched</span>
-                        <span class="tag-green">Zirconia Options</span>
-                        <span class="tag-orange">Durable</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?q=80&w=600&auto=format&fit=crop" alt="Crowns"><span class="image-tag">CAD/CAM</span></div>
+                <div class="treatment-content"><h3>Crowns & Bridges</h3><p>Precise, natural-looking crowns with a digital workflow.</p><div class="treatment-tags"><span class="tag-blue">Shade Matched</span><span class="tag-green">Zirconia Options</span><span class="tag-orange">Durable</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
-            <!-- Treatment 6 -->
             <div class="treatment-card">
-                <div class="treatment-image-box">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Dentures">
-                    <span class="image-tag">Digital</span>
-                </div>
-                <div class="treatment-content">
-                    <h3>Dentures</h3>
-                    <p>Comfortable, well-fitting dentures — including digital dentures.</p>
-                    <div class="treatment-tags">
-                        <span class="tag-blue">Digital Dentures</span>
-                        <span class="tag-green">Comfort Fit</span>
-                        <span class="tag-orange">Implant-Supported</span>
-                    </div>
-                </div>
-                <div class="treatment-action">
-                    <button class="book-btn">Book Consultation</button>
-                    <a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Dentures"><span class="image-tag">Digital</span></div>
+                <div class="treatment-content"><h3>Dentures</h3><p>Comfortable, well-fitting dentures — including digital dentures.</p><div class="treatment-tags"><span class="tag-blue">Digital Dentures</span><span class="tag-green">Comfort Fit</span><span class="tag-orange">Implant-Supported</span></div></div>
+                <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
-
         </div>
     </section>
 
@@ -2291,38 +2317,10 @@
     <section class="difference-section">
         <h2 class="difference-title">The RealTooth Difference</h2>
         <div class="difference-grid">
-            <!-- Item 1 -->
-            <div class="difference-item">
-                <div class="icon-box">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <h3>Genuinely Painless</h3>
-                <p>Gentle protocols — it is literally on our board.</p>
-            </div>
-            <!-- Item 2 -->
-            <div class="difference-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-display"></i>
-                </div>
-                <h3>Digital Dentistry</h3>
-                <p>In-house 3D imaging, CAD/CAM and laser.</p>
-            </div>
-            <!-- Item 3 -->
-            <div class="difference-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-user-group"></i>
-                </div>
-                <h3>60+ Specialists</h3>
-                <p>Every treatment by the right expert.</p>
-            </div>
-            <!-- Item 4 -->
-            <div class="difference-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-dollar-sign"></i>
-                </div>
-                <h3>Transparent + EMI</h3>
-                <p>Written estimates first, easy EMI.</p>
-            </div>
+            <div class="difference-item"><div class="icon-box"><i class="fa-regular fa-heart"></i></div><h3>Genuinely Painless</h3><p>Gentle protocols — it is literally on our board.</p></div>
+            <div class="difference-item"><div class="icon-box"><i class="fa-solid fa-display"></i></div><h3>Digital Dentistry</h3><p>In-house 3D imaging, CAD/CAM and laser.</p></div>
+            <div class="difference-item"><div class="icon-box"><i class="fa-solid fa-user-group"></i></div><h3>60+ Specialists</h3><p>Every treatment by the right expert.</p></div>
+            <div class="difference-item"><div class="icon-box"><i class="fa-solid fa-dollar-sign"></i></div><h3>Transparent + EMI</h3><p>Written estimates first, easy EMI.</p></div>
         </div>
     </section>
 
@@ -2337,35 +2335,22 @@
         </div>
 
         <div class="founders-grid">
-            <!-- Founder 1 -->
             <div class="founder-card">
-                <div class="founder-image-box">
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=300&auto=format&fit=crop" alt="Dr. Amit Anand">
-                </div>
+                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=300&auto=format&fit=crop" alt="Dr. Amit Anand"></div>
                 <div class="founder-info">
                     <h3 class="founder-name">Dr. Amit Anand</h3>
                     <div class="founder-role">CO-FOUNDER · IMPLANTOLOGIST & ENDODONTIST</div>
                     <p class="founder-desc">19+ years in conservative dentistry, endodontics and implantology. Trained at <strong>Harvard & Zurich</strong>, with <strong>10,000+ successful implant cases</strong>.</p>
-                    <div class="founder-tags">
-                        <span class="f-tag blue">Harvard & Zurich Trained</span>
-                        <span class="f-tag green">10,000+ Implants</span>
-                    </div>
+                    <div class="founder-tags"><span class="f-tag blue">Harvard & Zurich Trained</span><span class="f-tag green">10,000+ Implants</span></div>
                 </div>
             </div>
-
-            <!-- Founder 2 -->
             <div class="founder-card">
-                <div class="founder-image-box">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop" alt="Dr. Arpita Anand">
-                </div>
+                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop" alt="Dr. Arpita Anand"></div>
                 <div class="founder-info">
                     <h3 class="founder-name">Dr. Arpita Anand</h3>
                     <div class="founder-role">CO-FOUNDER · EXPERT DENTAL SURGEON</div>
                     <p class="founder-desc">A trusted name in dental aesthetics who has helped <strong>thousands of patients</strong> regain their confidence — known for explaining every option clearly.</p>
-                    <div class="founder-tags">
-                        <span class="f-tag blue">Dental Aesthetics</span>
-                        <span class="f-tag green">Patient-First Care</span>
-                    </div>
+                    <div class="founder-tags"><span class="f-tag blue">Dental Aesthetics</span><span class="f-tag green">Patient-First Care</span></div>
                 </div>
             </div>
         </div>
@@ -2381,11 +2366,8 @@
         </div>
         <div class="about-content">
             <p>RealTooth began more than two decades ago with a simple observation: most people in Lucknow did not avoid the dentist because of cost — they avoided the dentist because of fear. Dr. Amit Anand and Dr. Arpita Anand set out to build a clinic where that fear had no place, and put the promise on the signboard itself: <strong>Painless Dentistry by Experts</strong>.</p>
-            
             <p>That first clinic has grown into five centres across the city — Hazratganj, Gomti Nagar (Vibhuti Khand), Gomti Nagar Extension, Aliganj and Mahanagar — run by a team of more than sixty dentists and specialists covering every branch of dentistry: root canal treatment, implantology, orthodontics, cosmetic dentistry, paediatric care and full-mouth rehabilitation. Over 15,000 patients have been treated across the chain, and the clinics hold a 4.9 rating built from thousands of public reviews on Google, Practo and Justdial.</p>
-            
             <p>Two things have stayed constant through that growth. First, technology in the service of comfort: in-house 3D imaging for precise diagnosis, CAD/CAM digital workflows for crowns and implants, and laser dentistry that makes many procedures gentler and faster. Second, transparency: every patient receives a clear treatment plan and a written cost estimate before any work begins, with EMI options available on major treatments so the right treatment is never postponed for the wrong reason.</p>
-            
             <p>Whether you are coming in for a routine clean-up, a long-delayed root canal, or a complete smile makeover, the promise at every RealTooth clinic is the same one made twenty years ago: expert care, honestly priced, and genuinely painless.</p>
         </div>
     </section>
@@ -2398,33 +2380,12 @@
             <div class="steps-tag">SIMPLE & STRESS-FREE</div>
             <h2 class="steps-title">Your New Smile in 3 Steps</h2>
         </div>
-
         <div class="steps-grid">
-            <!-- Step 1 -->
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3 class="step-title">Book your visit</h3>
-                <p class="step-desc">Fill the form or WhatsApp us — we confirm a slot at the clinic nearest to you.</p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3 class="step-title">Consult & get your plan</h3>
-                <p class="step-desc">A specialist examines you and gives a clear plan with a written estimate.</p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3 class="step-title">Painless treatment</h3>
-                <p class="step-desc">Relax through a gentle procedure with proper follow-up care.</p>
-            </div>
+            <div class="step-card"><div class="step-number">1</div><h3 class="step-title">Book your visit</h3><p class="step-desc">Fill the form or WhatsApp us — we confirm a slot at the clinic nearest to you.</p></div>
+            <div class="step-card"><div class="step-number">2</div><h3 class="step-title">Consult & get your plan</h3><p class="step-desc">A specialist examines you and gives a clear plan with a written estimate.</p></div>
+            <div class="step-card"><div class="step-number">3</div><h3 class="step-title">Painless treatment</h3><p class="step-desc">Relax through a gentle procedure with proper follow-up care.</p></div>
         </div>
-        
-        <div class="steps-footer">
-            <span class="watch-tag">WATCH</span>
-        </div>
+        <div class="steps-footer"><span class="watch-tag">WATCH</span></div>
     </section>
 
     <!-- =========================================
@@ -2436,23 +2397,15 @@
             <h2 class="patient-stories-title">Patient Stories & Clinic Tour</h2>
         </div>
         <div class="stories-grid">
-            <!-- Video 1 -->
             <div class="story-card">
                 <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" alt="NRI Patients Video">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                <div class="story-text-overlay">
-                    <span class="highlight-text">WHY REALTOOTH</span><br>
-                    <span class="sub-text">IS THE FIRST CHOICE<br>OF NRI PATIENTS</span>
-                </div>
+                <div class="story-text-overlay"><span class="highlight-text">WHY REALTOOTH</span><br><span class="sub-text">IS THE FIRST CHOICE<br>OF NRI PATIENTS</span></div>
             </div>
-            <!-- Video 2 -->
             <div class="story-card">
                 <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Dental Implants Video">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                <div class="story-text-overlay" style="bottom: 20px; left: 20px;">
-                     <span style="font-size: 12px; text-transform: uppercase; color: white; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Understanding</span><br>
-                     <span style="font-size: 24px; font-weight: 800; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">Dental Implants</span>
-                </div>
+                <div class="story-text-overlay" style="bottom: 20px; left: 20px;"><span style="font-size: 12px; text-transform: uppercase; color: white; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Understanding</span><br><span style="font-size: 24px; font-weight: 800; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">Dental Implants</span></div>
             </div>
         </div>
     </section>
@@ -2466,103 +2419,15 @@
             <h2 class="instagram-title">Real Smiles on Instagram</h2>
             <p class="instagram-subtitle">Patient experiences and a peek inside our clinics. Tap any reel to play.</p>
         </div>
-
         <div class="instagram-grid">
-            <!-- Reel 1 (Green) -->
-            <div class="reel-card green">
-                <div class="reel-logo">Realtooth</div>
-                <div class="polaroid-frame">
-                    <div class="tape"></div>
-                    <div class="reel-image-container">
-                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial">
-                        <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="polaroid-caption">Patient Testimonial</div>
-                </div>
-                <div class="reel-website">www.realtooth.in</div>
-            </div>
-
-            <!-- Reel 2 (Green) -->
-            <div class="reel-card green">
-                <div class="reel-logo">Realtooth</div>
-                <div class="polaroid-frame">
-                    <div class="tape"></div>
-                    <div class="reel-image-container">
-                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial">
-                        <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="polaroid-caption">Patient Testimonial</div>
-                </div>
-                <div class="reel-website">www.realtooth.in</div>
-            </div>
-
-            <!-- Reel 3 (Blue Journey) -->
-            <div class="reel-card blue">
-                <div class="reel-logo" style="top: 15px; left: 15px; right: auto;">Realtooth</div>
-                <div class="blue-card-text-top">REALTOOTH CLINIC'S<br>BEFORE & AFTER<br>JOURNEY</div>
-                <div class="window-frame">
-                    <div class="window-header">
-                        <div class="dot-red"></div>
-                        <div class="dot-yellow"></div>
-                        <div class="dot-green"></div>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&auto=format&fit=crop" alt="Clinic Journey">
-                    <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <div class="blue-card-text-bottom">REALTOOTH DENTAL CLINIC</div>
-            </div>
-
-            <!-- Reel 4 (Green) -->
-            <div class="reel-card green">
-                <div class="reel-logo">Realtooth</div>
-                <div class="polaroid-frame">
-                    <div class="tape"></div>
-                    <div class="reel-image-container">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial">
-                        <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="polaroid-caption">Patient Testimonial</div>
-                </div>
-                <div class="reel-website">www.realtooth.in</div>
-            </div>
-
-            <!-- Reel 5 (Diwali/Cosmetic) -->
-            <div class="reel-card diwali">
-                <div class="reel-logo" style="color:#3b82f6;">Realtooth</div>
-                <div class="diwali-text">
-                    <h3>Ready for Diwali?</h3>
-                    <p>Explore the Magic of<br>Smile Makeovers!</p>
-                </div>
-                <div class="diwali-img-box">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Cosmetic Dentistry">
-                    <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <div class="custom-bottom-text" style="color:#1e293b; bottom: 10px;">Cosmetic Dentistry</div>
-            </div>
-
-            <!-- Reel 6 (Seniors) -->
-            <div class="reel-card custom-bg seniors">
-                <div class="reel-logo">Realtooth</div>
-                <div class="custom-text-overlay">
-                    <p>21 August<br>World Senior Citizen's Day</p>
-                    <h3>Why<br>Dental Care<br>is Crucial<br>For Seniors</h3>
-                    <p style="font-size:10px;">Inside RealTooth</p>
-                </div>
-                <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                <div class="custom-bottom-text">Seniors Care</div>
-            </div>
-
-            <!-- Reel 7 (Early Intervention) -->
-            <div class="reel-card custom-bg early">
-                <div class="reel-logo">Realtooth</div>
-                <div class="custom-text-overlay">
-                    <p style="font-size:10px; text-transform:uppercase;">Importance of</p>
-                    <h3>Early<br>Intervention</h3>
-                    <p style="font-size:9px;">Treat Malalignment early<br>to avoid complicated</p>
-                </div>
-                <div class="ig-play-btn"><i class="fa-solid fa-play"></i></div>
-                <div class="custom-bottom-text">Early Intervention</div>
-            </div>
+            <!-- Reels Data -->
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card blue"><div class="reel-logo" style="top: 15px; left: 15px; right: auto;">Realtooth</div><div class="blue-card-text-top">REALTOOTH CLINIC'S<br>BEFORE & AFTER<br>JOURNEY</div><div class="window-frame"><div class="window-header"><div class="dot-red"></div><div class="dot-yellow"></div><div class="dot-green"></div></div><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&auto=format&fit=crop" alt="Clinic Journey"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="blue-card-text-bottom">REALTOOTH DENTAL CLINIC</div></div>
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card diwali"><div class="reel-logo" style="color:#3b82f6;">Realtooth</div><div class="diwali-text"><h3>Ready for Diwali?</h3><p>Explore the Magic of<br>Smile Makeovers!</p></div><div class="diwali-img-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Cosmetic Dentistry"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="custom-bottom-text" style="color:#1e293b; bottom: 10px;">Cosmetic Dentistry</div></div>
+            <div class="reel-card custom-bg seniors"><div class="reel-logo">Realtooth</div><div class="custom-text-overlay"><p>21 August<br>World Senior Citizen's Day</p><h3>Why<br>Dental Care<br>is Crucial<br>For Seniors</h3><p style="font-size:10px;">Inside RealTooth</p></div><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div><div class="custom-bottom-text">Seniors Care</div></div>
+            <div class="reel-card custom-bg early"><div class="reel-logo">Realtooth</div><div class="custom-text-overlay"><p style="font-size:10px; text-transform:uppercase;">Importance of</p><h3>Early<br>Intervention</h3><p style="font-size:9px;">Treat Malalignment early<br>to avoid complicated</p></div><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div><div class="custom-bottom-text">Early Intervention</div></div>
         </div>
     </section>
 
@@ -2571,79 +2436,13 @@
          ========================================= -->
     <section class="clinics-section">
         <h2 class="clinics-title">5 Clinics Across Lucknow</h2>
-        
         <div class="clinics-grid">
-            <!-- Clinic 1 -->
-            <div class="clinic-item">
-                <div class="clinic-header">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="clinic-name">Hazratganj</span>
-                </div>
-                <p class="clinic-address">Greenwood Apartment, Gokhale Marg, Near Redhill School, Lucknow</p>
-                <div class="clinic-actions">
-                    <a href="#" class="call-clinic">Call Clinic</a>
-                    <a href="#" class="directions-btn">Directions</a>
-                </div>
-            </div>
-
-            <!-- Clinic 2 -->
-            <div class="clinic-item">
-                <div class="clinic-header">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="clinic-name">Gomti Nagar (Vibhuti Khand)</span>
-                </div>
-                <p class="clinic-address">Omaxe Heights Tower No-1, Vijajpur Colony, Vibhuti Khand, Lucknow</p>
-                <div class="clinic-actions">
-                    <a href="#" class="call-clinic">Call Clinic</a>
-                    <a href="#" class="directions-btn">Directions</a>
-                </div>
-            </div>
-
-            <!-- Clinic 3 -->
-            <div class="clinic-item">
-                <div class="clinic-header">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="clinic-name">Gomti Nagar Extension</span>
-                </div>
-                <p class="clinic-address">Kalptaru Apartment, Vardan Khand, Sector 1, Lucknow</p>
-                <div class="clinic-actions">
-                    <a href="#" class="call-clinic">Call Clinic</a>
-                    <a href="#" class="directions-btn">Directions</a>
-                </div>
-            </div>
-
-            <!-- Clinic 4 -->
-            <div class="clinic-item">
-                <div class="clinic-header">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="clinic-name">Aliganj</span>
-                </div>
-                <p class="clinic-address">Star Tower Building, Opp. Kendriya Bhawan, Sector-H, Lucknow</p>
-                <div class="clinic-actions">
-                    <a href="#" class="call-clinic">Call Clinic</a>
-                    <a href="#" class="directions-btn">Directions</a>
-                </div>
-            </div>
-
-            <!-- Clinic 5 -->
-            <div class="clinic-item">
-                <div class="clinic-header">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span class="clinic-name">Mahanagar</span>
-                </div>
-                <p class="clinic-address">C-117 H Sector A, Mandir Marg, Lucknow</p>
-                <div class="clinic-actions">
-                    <a href="#" class="call-clinic">Call Clinic</a>
-                    <a href="#" class="directions-btn">Directions</a>
-                </div>
-            </div>
-
-            <!-- Special Guide Box -->
-            <div class="clinic-guide-box">
-                <p class="guide-text">Not sure which clinic is closest?</p>
-                <a href="#" class="guide-btn">We Will Guide You</a>
-                <p class="guide-hotline">Hotline: +91 88819 00300</p>
-            </div>
+            <div class="clinic-item"><div class="clinic-header"><i class="fa-solid fa-location-dot"></i><span class="clinic-name">Hazratganj</span></div><p class="clinic-address">Greenwood Apartment, Gokhale Marg, Near Redhill School, Lucknow</p><div class="clinic-actions"><a href="#" class="call-clinic">Call Clinic</a><a href="#" class="directions-btn">Directions</a></div></div>
+            <div class="clinic-item"><div class="clinic-header"><i class="fa-solid fa-location-dot"></i><span class="clinic-name">Gomti Nagar (Vibhuti Khand)</span></div><p class="clinic-address">Omaxe Heights Tower No-1, Vijajpur Colony, Vibhuti Khand, Lucknow</p><div class="clinic-actions"><a href="#" class="call-clinic">Call Clinic</a><a href="#" class="directions-btn">Directions</a></div></div>
+            <div class="clinic-item"><div class="clinic-header"><i class="fa-solid fa-location-dot"></i><span class="clinic-name">Gomti Nagar Extension</span></div><p class="clinic-address">Kalptaru Apartment, Vardan Khand, Sector 1, Lucknow</p><div class="clinic-actions"><a href="#" class="call-clinic">Call Clinic</a><a href="#" class="directions-btn">Directions</a></div></div>
+            <div class="clinic-item"><div class="clinic-header"><i class="fa-solid fa-location-dot"></i><span class="clinic-name">Aliganj</span></div><p class="clinic-address">Star Tower Building, Opp. Kendriya Bhawan, Sector-H, Lucknow</p><div class="clinic-actions"><a href="#" class="call-clinic">Call Clinic</a><a href="#" class="directions-btn">Directions</a></div></div>
+            <div class="clinic-item"><div class="clinic-header"><i class="fa-solid fa-location-dot"></i><span class="clinic-name">Mahanagar</span></div><p class="clinic-address">C-117 H Sector A, Mandir Marg, Lucknow</p><div class="clinic-actions"><a href="#" class="call-clinic">Call Clinic</a><a href="#" class="directions-btn">Directions</a></div></div>
+            <div class="clinic-guide-box"><p class="guide-text">Not sure which clinic is closest?</p><a href="#" class="guide-btn">We Will Guide You</a><p class="guide-hotline">Hotline: +91 88819 00300</p></div>
         </div>
     </section>
 
@@ -2656,28 +2455,10 @@
             <h2 class="choose-title">How to Choose a Dental Clinic in Lucknow</h2>
             <p class="choose-subtitle">Use this checklist for any clinic you consider — including ours. A good clinic will pass every point without hesitation.</p>
         </div>
-        
         <div class="choose-list">
-            <!-- Item 1 -->
-            <div class="choose-item">
-                <div class="choose-number">1</div>
-                <h3 class="choose-item-title">Check reviews across more than one platform</h3>
-                <p class="choose-item-desc">A clinic can look good on a single website. Cross-check its rating on Google, Practo and Justdial together — consistent scores from thousands of reviewers are hard to fake and tell you how patients are treated after the billing is done.</p>
-            </div>
-            
-            <!-- Item 2 -->
-            <div class="choose-item">
-                <div class="choose-number">2</div>
-                <h3 class="choose-item-title">Ask who will actually treat you</h3>
-                <p class="choose-item-desc">General dentistry, root canals, implants and braces are different specialities. For anything beyond a check-up, ask whether a specialist — an endodontist, implantologist or orthodontist — will handle your case, and what their experience is.</p>
-            </div>
-            
-            <!-- Item 3 -->
-            <div class="choose-item">
-                <div class="choose-number">3</div>
-                <h3 class="choose-item-title">Look at sterilisation before you look at the interiors</h3>
-                <p class="choose-item-desc">A beautiful waiting room means little if instruments are not autoclaved between patients. Good clinics are proud to show you their sterilisation process.</p>
-            </div>
+            <div class="choose-item"><div class="choose-number">1</div><h3 class="choose-item-title">Check reviews across more than one platform</h3><p class="choose-item-desc">A clinic can look good on a single website. Cross-check its rating on Google, Practo and Justdial together — consistent scores from thousands of reviewers are hard to fake and tell you how patients are treated after the billing is done.</p></div>
+            <div class="choose-item"><div class="choose-number">2</div><h3 class="choose-item-title">Ask who will actually treat you</h3><p class="choose-item-desc">General dentistry, root canals, implants and braces are different specialities. For anything beyond a check-up, ask whether a specialist — an endodontist, implantologist or orthodontist — will handle your case, and what their experience is.</p></div>
+            <div class="choose-item"><div class="choose-number">3</div><h3 class="choose-item-title">Look at sterilisation before you look at the interiors</h3><p class="choose-item-desc">A beautiful waiting room means little if instruments are not autoclaved between patients. Good clinics are proud to show you their sterilisation process.</p></div>
         </div>
     </section>
 
@@ -2689,95 +2470,15 @@
             <div class="faq-tag">GOOD TO KNOW</div>
             <h2 class="faq-title">Frequently Asked Questions</h2>
         </div>
-        
         <div class="faq-list">
-            <!-- FAQ Item 1 -->
-            <details class="faq-item">
-                <summary>
-                    How do I know which treatment I need?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Our specialists will conduct a thorough examination and explain your options clearly. We recommend booking a consultation so we can assess your specific needs and provide a tailored treatment plan.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 2 -->
-            <details class="faq-item">
-                <summary>
-                    Is treatment at RealTooth really painless?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Yes, we use advanced techniques, modern equipment, and gentle protocols to ensure your comfort. Our doctors are trained to minimize discomfort at every step, from local anesthesia to post-treatment care.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 3 -->
-            <details class="faq-item">
-                <summary>
-                    How much do dental treatments cost?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>The cost varies depending on the complexity of the procedure. We believe in complete transparency and will provide you with a written estimate before starting any treatment.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 4 -->
-            <details class="faq-item">
-                <summary>
-                    Do you offer EMI or payment plans?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Yes, we offer easy EMI options on major treatments so that you don't have to postpone essential dental care due to financial constraints.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 5 -->
-            <details class="faq-item">
-                <summary>
-                    Do I need an appointment or can I walk in?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>While we do accept walk-ins based on availability, we highly recommend booking an appointment in advance to reduce your wait time and ensure you get a slot at your preferred time.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 6 -->
-            <details class="faq-item">
-                <summary>
-                    What happens at my first visit?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Your first visit includes a comprehensive dental examination, digital X-rays if necessary, and a detailed discussion about your oral health and treatment options.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 7 -->
-            <details class="faq-item">
-                <summary>
-                    How often should I get a dental check-up?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>We generally recommend a dental check-up and professional cleaning every six months to maintain optimal oral health and catch any potential issues early.</p>
-                </div>
-            </details>
-
-            <!-- FAQ Item 8 -->
-            <details class="faq-item">
-                <summary>
-                    Which of your five clinics should I choose?
-                    <span class="faq-icon">+</span>
-                </summary>
-                <div class="faq-answer">
-                    <p>All our clinics offer the same high standard of care. You can choose the one that is most convenient for you. If you're unsure, use our "We Will Guide You" feature or call our hotline.</p>
-                </div>
-            </details>
+            <details class="faq-item"><summary>How do I know which treatment I need?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>Our specialists will conduct a thorough examination and explain your options clearly. We recommend booking a consultation so we can assess your specific needs and provide a tailored treatment plan.</p></div></details>
+            <details class="faq-item"><summary>Is treatment at RealTooth really painless?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>Yes, we use advanced techniques, modern equipment, and gentle protocols to ensure your comfort. Our doctors are trained to minimize discomfort at every step, from local anesthesia to post-treatment care.</p></div></details>
+            <details class="faq-item"><summary>How much do dental treatments cost?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>The cost varies depending on the complexity of the procedure. We believe in complete transparency and will provide you with a written estimate before starting any treatment.</p></div></details>
+            <details class="faq-item"><summary>Do you offer EMI or payment plans?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>Yes, we offer easy EMI options on major treatments so that you don't have to postpone essential dental care due to financial constraints.</p></div></details>
+            <details class="faq-item"><summary>Do I need an appointment or can I walk in?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>While we do accept walk-ins based on availability, we highly recommend booking an appointment in advance to reduce your wait time and ensure you get a slot at your preferred time.</p></div></details>
+            <details class="faq-item"><summary>What happens at my first visit?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>Your first visit includes a comprehensive dental examination, digital X-rays if necessary, and a detailed discussion about your oral health and treatment options.</p></div></details>
+            <details class="faq-item"><summary>How often should I get a dental check-up?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>We generally recommend a dental check-up and professional cleaning every six months to maintain optimal oral health and catch any potential issues early.</p></div></details>
+            <details class="faq-item"><summary>Which of your five clinics should I choose?<span class="faq-icon">+</span></summary><div class="faq-answer"><p>All our clinics offer the same high standard of care. You can choose the one that is most convenient for you. If you're unsure, use our "We Will Guide You" feature or call our hotline.</p></div></details>
         </div>
     </section>
 
@@ -2788,10 +2489,7 @@
         <div class="cta-content">
             <h2 class="cta-title">Your Healthiest Smile Starts With One Visit</h2>
             <p class="cta-subtitle">Book today — specialist consultation, clear treatment plan and a written cost estimate.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn-white">Book My Appointment</a>
-                <a href="#" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a>
-            </div>
+            <div class="cta-buttons"><a href="#" class="btn-white">Book My Appointment</a><a href="#" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a></div>
             <p class="cta-phone">Prefer to talk? Call <strong>+91 88819 00300</strong></p>
         </div>
     </section>
@@ -2801,45 +2499,208 @@
          ========================================= -->
     <footer class="footer-section">
         <div class="footer-container">
-            <!-- Column 1 -->
             <div class="footer-col">
-                <div class="footer-logo">
-                    <i class="fa-solid fa-tooth"></i> realtooth
-                </div>
+                <div class="footer-logo"><i class="fa-solid fa-tooth"></i> realtooth</div>
                 <p class="footer-desc">RealTooth — Painless Dentistry by Experts. 20+ years, 60+ specialist doctors and 5 advanced clinics across Lucknow, trusted by 15,000+ patients.</p>
                 <div class="contact-item"><i class="fa-solid fa-phone"></i> +91 88819 00300</div>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i> WhatsApp: +91 88819 00300</div>
                 <div class="contact-item"><i class="fa-solid fa-envelope"></i> info@realtooth.in</div>
                 <div class="contact-item"><i class="fa-solid fa-location-dot"></i> C-117 H Sector A, Mandir Marg, Mahanagar, Lucknow, UP</div>
             </div>
-            <!-- Column 2 -->
             <div class="footer-col">
                 <h4 class="footer-title">OUR PAGES</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Best Dental Clinic in Lucknow</a></li>
-                    <li><a href="#">Best Dentist in Lucknow</a></li>
-                    <li><a href="#">Braces & Aligners</a></li>
-                    <li><a href="#">Dental Implants</a></li>
-                </ul>
+                <ul class="footer-links"><li><a href="#">Best Dental Clinic in Lucknow</a></li><li><a href="#">Best Dentist in Lucknow</a></li><li><a href="#">Braces & Aligners</a></li><li><a href="#">Dental Implants</a></li></ul>
             </div>
-            <!-- Column 3 -->
             <div class="footer-col">
                 <h4 class="footer-title">ON THIS PAGE</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Treatments</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Our 5 Clinics</a></li>
-                    <li><a href="#">FAQs</a></li>
-                </ul>
+                <ul class="footer-links"><li><a href="#">Treatments</a></li><li><a href="#">Reviews</a></li><li><a href="#">Our 5 Clinics</a></li><li><a href="#">FAQs</a></li></ul>
                 <h4 class="footer-title" style="margin-top: 30px;">MORE</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Main Website — realtooth.in</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
+                <ul class="footer-links"><li><a href="#">Main Website — realtooth.in</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul>
             </div>
         </div>
     </footer>
 
+    <!-- =========================================
+         GAMIFIED JOURNEY MODAL
+         ========================================= -->
+    <div id="journey-modal" class="modal-overlay">
+        <div class="journey-modal">
+            <!-- Header -->
+            <div class="journey-header">
+                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                <div class="journey-title">
+                    <h3>Request received</h3>
+                    <p>Our team will call you shortly to confirm your appointment.</p>
+                </div>
+            </div>
+
+            <!-- Mascot -->
+            <div class="mascot-area">
+                <div class="mascot-icon">🦷</div>
+                <div class="speech-bubble" id="speech-text">Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.</div>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-container">
+                <div class="progress-text-row">
+                    <span id="question-count">Question 1 of 9</span>
+                    <span class="points-badge" id="points-display">+ 0 pts</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 11%;"></div>
+                </div>
+                <div class="profile-strength" id="profile-strength">PROFILE STRENGTH: STARTING</div>
+            </div>
+
+            <!-- Step 1: WhatsApp Number -->
+            <div class="step-content" id="step-1">
+                <div class="step-title">First — your WhatsApp number</div>
+                <div class="step-desc">So our doctor can share your personalised plan and estimate directly with you.</div>
+                <div class="wa-input-group">
+                    <span class="wa-prefix">+91</span>
+                    <input type="tel" value="7007781077" id="wa-number-input">
+                </div>
+                <button class="primary-btn" onclick="goToStep(2)">Confirm number</button>
+            </div>
+
+            <!-- Step 2: Who is this for? -->
+            <div class="step-content" id="step-2" style="display: none;">
+                <div class="step-title">Who is this appointment for?</div>
+                <div class="step-desc">Care plans differ for every age.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 2)">
+                        <input type="radio" name="for_who" value="myself">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Myself</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 2)">
+                        <input type="radio" name="for_who" value="spouse">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Spouse / parent</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 2)">
+                        <input type="radio" name="for_who" value="child">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">My child</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(1)">Back</button>
+            </div>
+
+            <!-- Step 3: What's bothering you? -->
+            <div class="step-content" id="step-3" style="display: none;">
+                <div class="step-title">What's bothering you the most?</div>
+                <div class="step-desc">Pick the closest one — this routes you to the right specialist.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="tooth_pain">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Tooth pain</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="missing_teeth">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Missing teeth</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="crooked">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Crooked or gap teeth</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="yellow">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Yellow or stained teeth</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="bleeding">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Bleeding gums</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 3)">
+                        <input type="radio" name="issue" value="checkup">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Check-up / cleaning</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(2)">Back</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =========================================
+         JOURNEY LOGIC (JavaScript)
+         ========================================= -->
+    <script>
+        // Prevent default form submission and open modal
+        function openJourneyModal(event) {
+            event.preventDefault();
+            document.getElementById('journey-modal').style.display = 'flex';
+            // Reset to step 1 on new open
+            goToStep(1);
+        }
+
+        // Logic for switching steps
+        function goToStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
+            
+            // Show target step
+            const targetStep = document.getElementById('step-' + step);
+            if (targetStep) {
+                targetStep.style.display = 'block';
+            }
+
+            // Update Progress UI
+            const questionText = document.getElementById('question-count');
+            const pointsText = document.getElementById('points-display');
+            const progressFill = document.getElementById('progress-fill');
+            const profileStrength = document.getElementById('profile-strength');
+            const speechText = document.getElementById('speech-text');
+            const mascotIcon = document.querySelector('.mascot-icon');
+
+            if (step === 1) {
+                questionText.innerText = "Question 1 of 9";
+                pointsText.innerText = "+ 0 pts";
+                progressFill.style.width = "11%";
+                profileStrength.innerText = "PROFILE STRENGTH: STARTING";
+                speechText.innerText = "Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.";
+                mascotIcon.innerText = "🦷";
+            } else if (step === 2) {
+                questionText.innerText = "Question 2 of 9";
+                pointsText.innerText = "+ 10 pts";
+                progressFill.style.width = "22%";
+                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                speechText.innerText = "Locked in! Your plan lands straight on WhatsApp.";
+                mascotIcon.innerText = "🦷";
+            } else if (step === 3) {
+                questionText.innerText = "Question 3 of 9";
+                pointsText.innerText = "+ 20 pts";
+                progressFill.style.width = "33%";
+                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                speechText.innerText = "Aww — we're extra, extra gentle with kids.";
+                mascotIcon.innerText = "🦷";
+            }
+        }
+
+        // Logic for selecting a radio option
+        function selectOption(labelElement, stepNumber) {
+            // Remove 'selected' class from siblings
+            const siblings = labelElement.parentElement.querySelectorAll('.radio-item');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            
+            // Add 'selected' class to clicked item
+            labelElement.classList.add('selected');
+
+            // Auto-advance to next step after a short delay for smooth UX
+            setTimeout(() => {
+                if (stepNumber === 2) {
+                    goToStep(3);
+                }
+                // If there was a step 4, we would add it here. For now, we stop at 3.
+            }, 300);
+        }
+    </script>
 </body>
 </html>
