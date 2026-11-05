@@ -52,6 +52,15 @@
             height: auto;
         }
 
+        /* Touch responsiveness: kill 300ms tap delay + tap highlight */
+        .submit-btn, .book-btn, .directions-btn, .call-clinic, .guide-btn,
+        .btn-white, .btn-whatsapp, .radio-item, .primary-btn, .back-btn,
+        .skip-btn, .upload-box, .ig-play-btn, .play-btn, .whatsapp-icon,
+        .faq-item summary, .insta-btn {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         /* Prevent flexbox children from overflowing on small screens */
         .mobile-input-group input,
         .wa-input-group input {
@@ -297,10 +306,15 @@
             cursor: pointer;
             margin-top: 10px;
             transition: background-color 0.2s;
+            min-height: 50px;
         }
 
         .submit-btn:hover {
             background-color: #2563eb;
+        }
+
+        .submit-btn:active {
+            background-color: #1d4ed8;
         }
 
         .privacy-text {
@@ -599,15 +613,20 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s;
+            min-height: 46px;
         }
 
         .treatment-action .book-btn:hover {
             background-color: #2563eb;
         }
 
+        .treatment-action .book-btn:active {
+            background-color: #1d4ed8;
+        }
+
         .whatsapp-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             background-color: #25D366;
             color: white;
             border-radius: 50%;
@@ -1412,6 +1431,10 @@
             color: #1e293b;
             text-decoration: none;
             cursor: pointer;
+            padding: 8px 0;
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .call-clinic:hover {
@@ -1421,16 +1444,23 @@
         .directions-btn {
             background-color: #22c55e;
             color: white;
-            padding: 10px 28px;
+            padding: 12px 28px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             transition: background-color 0.2s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .directions-btn:hover {
             background-color: #16a34a;
+        }
+
+        .directions-btn:active {
+            background-color: #15803d;
         }
 
         .clinic-guide-box {
@@ -1461,10 +1491,17 @@
             text-decoration: none;
             margin-bottom: 12px;
             transition: background-color 0.2s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .guide-btn:hover {
             background-color: #2563eb;
+        }
+
+        .guide-btn:active {
+            background-color: #1d4ed8;
         }
 
         .guide-hotline {
@@ -1617,6 +1654,7 @@
             cursor: pointer;
             list-style: none;
             outline: none;
+            min-height: 56px;
         }
 
         .faq-item summary::-webkit-details-marker {
@@ -1696,6 +1734,7 @@
             text-decoration: none;
             display: inline-block;
             transition: background-color 0.2s;
+            min-height: 50px;
         }
 
         .btn-white:hover {
@@ -1715,6 +1754,7 @@
             justify-content: center;
             gap: 8px;
             transition: background-color 0.2s;
+            min-height: 50px;
         }
 
         .btn-whatsapp:hover {
@@ -1823,7 +1863,7 @@
         }
 
         /* =========================================
-           GAMIFIED JOURNEY MODAL (Smooth & Engaging)
+           GAMIFIED JOURNEY MODAL (Fast & Snappy)
            ========================================= */
         .modal-overlay {
             position: fixed;
@@ -1831,7 +1871,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(15, 23, 42, 0.45);
             -webkit-backdrop-filter: blur(3px);
             backdrop-filter: blur(3px);
             display: none; 
@@ -1839,7 +1879,7 @@
             align-items: center;
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.25s ease;
+            transition: opacity 0.18s ease;
             overscroll-behavior: contain;
             padding: 16px;
         }
@@ -1863,11 +1903,12 @@
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
             transform: translateY(20px) scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.2);
         }
 
         .modal-overlay.active .journey-modal {
             transform: translateY(0) scale(1);
+            will-change: transform;
         }
 
         .journey-header {
@@ -1888,7 +1929,7 @@
             color: white;
             font-size: 16px;
             flex-shrink: 0;
-            animation: popCheck 0.5s ease-out;
+            animation: popCheck 0.35s ease-out;
         }
 
         @keyframes popCheck {
@@ -1921,6 +1962,7 @@
             font-size: 40px;
             line-height: 1;
             animation: floatTooth 3s ease-in-out infinite;
+            will-change: transform;
         }
 
         @keyframes floatTooth {
@@ -1939,11 +1981,12 @@
             color: #166534;
             font-weight: 500;
             flex: 1;
-            animation: popIn 0.4s ease-out;
+            animation: popIn 0.25s ease-out;
+            will-change: transform, opacity;
         }
 
         @keyframes popIn {
-            0% { transform: scale(0.9); opacity: 0; }
+            0% { transform: scale(0.92); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
@@ -1977,7 +2020,8 @@
             height: 100%;
             background-color: #22c55e;
             width: 10%;
-            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: width;
         }
 
         .profile-strength {
@@ -1989,11 +2033,11 @@
         }
 
         .step-content {
-            animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(15px); }
+            from { opacity: 0; transform: translateX(12px); }
             to { opacity: 1; transform: translateX(0); }
         }
 
@@ -2017,7 +2061,7 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
-            transition: border-color 0.3s;
+            transition: border-color 0.2s;
         }
         
         .wa-input-group:focus-within {
@@ -2053,17 +2097,18 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: background-color 0.15s ease, transform 0.12s ease;
             box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+            min-height: 48px;
         }
 
         .primary-btn:hover {
             background-color: #2563eb;
-            transform: translateY(-2px);
         }
-        
+
         .primary-btn:active {
-            transform: translateY(0);
+            background-color: #1d4ed8;
+            transform: scale(0.98);
         }
 
         .radio-list {
@@ -2081,9 +2126,9 @@
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+            transition: background-color 0.15s, border-color 0.15s;
             background: #ffffff;
-            -webkit-tap-highlight-color: transparent;
+            min-height: 48px;
         }
 
         .radio-item:hover {
@@ -2091,10 +2136,16 @@
             border-color: #94a3b8;
         }
 
+        .radio-item:active {
+            background: #eff6ff;
+            border-color: #3b82f6;
+        }
+
         .radio-item input[type="radio"] {
             position: absolute;
             opacity: 0;
             cursor: pointer;
+            pointer-events: none;
         }
 
         .radio-circle {
@@ -2106,7 +2157,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: border-color 0.2s;
+            transition: border-color 0.15s;
             flex-shrink: 0;
         }
 
@@ -2118,7 +2169,7 @@
             border-radius: 50%;
             display: none;
             transform: scale(0);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         /* When selected */
@@ -2158,15 +2209,20 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            padding: 5px 0;
+            padding: 8px 0;
             margin-top: 10px;
             text-align: left;
             display: inline-block;
             transition: color 0.2s;
+            min-height: 36px;
         }
 
         .back-btn:hover {
             color: #1e293b;
+        }
+
+        .back-btn:active {
+            color: #0f172a;
         }
 
         /* Step 10 Photo Upload */
@@ -2176,7 +2232,7 @@
             padding: 30px 20px;
             text-align: center;
             cursor: pointer;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
             margin-bottom: 20px;
             background: #f8fafc;
         }
@@ -2184,6 +2240,10 @@
         .upload-box:hover {
             border-color: #3b82f6;
             background: #eff6ff;
+        }
+
+        .upload-box:active {
+            background: #dbeafe;
         }
 
         .upload-icon {
@@ -2211,8 +2271,9 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            padding: 5px 0;
+            padding: 8px 0;
             transition: color 0.2s;
+            min-height: 36px;
         }
 
         .skip-btn:hover {
@@ -2305,6 +2366,7 @@
             font-weight: 600;
             font-size: 15px;
             margin-bottom: 15px;
+            min-height: 48px;
         }
 
         .urgent-text {
@@ -2318,26 +2380,57 @@
             text-decoration: none;
         }
 
-        /* Responsive Design for Modal */
+        /* ---------- Modal mobile responsiveness (fast & touch friendly) ---------- */
         @media (max-width: 500px) {
-            .modal-overlay { padding: 10px; }
-            .journey-modal {
-                padding: 20px;
-                border-radius: 12px;
-                width: 100%;
-                max-height: 92dvh;
+            .modal-overlay {
+                padding: 8px;
+                -webkit-backdrop-filter: blur(2px);
+                backdrop-filter: blur(2px);
+                transition: opacity 0.15s ease;
             }
-            .mascot-icon { font-size: 32px; }
-            .speech-bubble { font-size: 12px; padding: 10px; }
+            .journey-modal {
+                padding: 18px;
+                border-radius: 14px;
+                max-height: 94dvh;
+                transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+            }
+            .journey-header { gap: 12px; margin-bottom: 16px; }
+            .check-circle { width: 30px; height: 30px; font-size: 14px; }
+            .journey-title h3 { font-size: 16px; }
+            .journey-title p { font-size: 12px; }
+            .mascot-area { gap: 10px; margin-bottom: 18px; min-height: 48px; }
+            .mascot-icon { font-size: 30px; }
+            .speech-bubble { font-size: 12px; padding: 10px 12px; animation-duration: 0.2s; }
+            .progress-container { margin-bottom: 16px; }
+            .progress-text-row { font-size: 11px; }
+            .step-title { font-size: 16px; margin-bottom: 6px; }
+            .step-desc { font-size: 12px; margin-bottom: 14px; }
+            .step-content { animation-duration: 0.18s; }
+            .radio-list { gap: 8px; margin-bottom: 14px; }
+            .radio-item { padding: 12px 14px; min-height: 48px; }
+            .radio-text { font-size: 13px; }
+            .radio-circle { width: 20px; height: 20px; }
+            .primary-btn { padding: 13px; font-size: 15px; min-height: 48px; }
+            .wa-input-group input { font-size: 16px; }
+            .upload-box { padding: 24px 16px; }
+            .upload-icon { font-size: 28px; }
+            .upload-text-main { font-size: 13px; }
+            .upload-text-sub { font-size: 11px; }
+            .star-circle { width: 60px; height: 60px; font-size: 28px; }
+            .final-title { font-size: 18px; }
+            .final-points { font-size: 13px; }
+            .final-text { font-size: 12px; }
+            .info-box { padding: 12px; }
         }
 
         @media (max-height: 640px) {
             .journey-modal {
                 max-height: 96dvh;
-                padding: 18px;
+                padding: 16px;
             }
-            .mascot-area { min-height: 40px; margin-bottom: 15px; }
-            .progress-container { margin-bottom: 15px; }
+            .mascot-area { min-height: 36px; margin-bottom: 12px; }
+            .progress-container { margin-bottom: 12px; }
+            .step-desc { margin-bottom: 12px; }
         }
 
         /* =========================================
@@ -3101,10 +3194,10 @@
     </div>
 
     <!-- =========================================
-         JOURNEY LOGIC (JavaScript)
+         JOURNEY LOGIC (JavaScript — optimized for speed)
          ========================================= -->
     <script>
-        /* ---------- Cached DOM references (faster than re-querying) ---------- */
+        /* ---------- Cached DOM references (single lookup, no re-query) ---------- */
         var modalEl = document.getElementById('journey-modal');
         var journeyHeader = document.querySelector('.journey-header');
         var mascotArea = document.querySelector('.mascot-area');
@@ -3115,6 +3208,8 @@
         var progressFill = document.getElementById('progress-fill');
         var profileStrength = document.getElementById('profile-strength');
         var allSteps = document.querySelectorAll('.step-content');
+        var currentStepEl = document.getElementById('step-1'); /* track visible step for O(1) swaps */
+        var advanceTimer = null;
 
         /* ---------- Open modal (fast, no layout thrash) ---------- */
         function openJourneyModal(event) {
@@ -3129,7 +3224,7 @@
             document.documentElement.classList.add('modal-open');
             document.body.classList.add('modal-open');
 
-            /* Use rAF instead of setTimeout -> smoother, no jank */
+            /* Double rAF: paint display:flex first, then trigger transform transition */
             requestAnimationFrame(function () {
                 requestAnimationFrame(function () {
                     modalEl.classList.add('active');
@@ -3146,7 +3241,7 @@
             document.body.classList.remove('modal-open');
             setTimeout(function () {
                 modalEl.style.display = 'none';
-            }, 250);
+            }, 180);
         }
 
         /* Close on backdrop click */
@@ -3161,28 +3256,26 @@
             }
         });
 
-        /* ---------- Smooth speech bubble ---------- */
+        /* ---------- Smooth speech bubble (tiny reflow only on bubble) ---------- */
         function animateSpeech(text) {
             speechText.style.animation = 'none';
-            void speechText.offsetHeight; /* reflow to restart animation */
-            speechText.style.animation = 'popIn 0.4s ease-out';
+            void speechText.offsetHeight; /* restart popIn animation */
+            speechText.style.animation = 'popIn 0.25s ease-out';
             speechText.textContent = text;
         }
 
-        /* ---------- Step switching ---------- */
+        /* ---------- Fast step switching (only 2 style writes, no forced reflow) ---------- */
         function goToStep(step) {
-            /* Hide all steps */
-            for (var i = 0; i < allSteps.length; i++) {
-                allSteps[i].style.display = 'none';
-            }
-
-            /* Show target step with fresh animation */
             var targetStep = document.getElementById('step-' + step);
+
+            /* Swap visibility: hide previous, show new — no full scan, no forced reflow.
+               CSS keyframe animation auto-restarts when display goes none -> block. */
+            if (currentStepEl && currentStepEl !== targetStep) {
+                currentStepEl.style.display = 'none';
+            }
             if (targetStep) {
-                targetStep.style.animation = 'none';
-                void targetStep.offsetHeight;
-                targetStep.style.animation = '';
                 targetStep.style.display = 'block';
+                currentStepEl = targetStep;
             }
 
             /* Header / mascot / progress visibility */
@@ -3255,8 +3348,7 @@
             }
         }
 
-        /* ---------- Radio selection + auto advance ---------- */
-        var advanceTimer = null;
+        /* ---------- Radio selection + fast auto advance (200ms) ---------- */
         function selectOption(labelElement, nextStep) {
             var siblings = labelElement.parentElement.querySelectorAll('.radio-item');
             for (var i = 0; i < siblings.length; i++) {
@@ -3268,7 +3360,7 @@
             if (advanceTimer) clearTimeout(advanceTimer);
             advanceTimer = setTimeout(function () {
                 goToStep(nextStep);
-            }, 320);
+            }, 200);
         }
 
         /* ---------- Finish ---------- */
