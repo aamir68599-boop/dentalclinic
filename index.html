@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
     <title>Expert Dental Care - Book Appointment</title>
+
+    <!-- Speed: preconnect to image & icon CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -18,6 +25,14 @@
         html, body {
             overflow-x: hidden;
             width: 100%;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* Scroll lock when modal is open (prevents background jank) */
+        html.modal-open,
+        body.modal-open {
+            overflow: hidden;
         }
 
         body {
@@ -28,6 +43,19 @@
             min-height: 100vh;
             padding: 40px 20px;
             color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Performance: images never overflow + GPU friendly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Prevent flexbox children from overflowing on small screens */
+        .mobile-input-group input,
+        .wa-input-group input {
+            min-width: 0;
         }
 
         /* =========================================
@@ -220,6 +248,7 @@
             font-weight: 600;
             border-right: 1px solid #cbd5e1;
             font-size: 15px;
+            flex-shrink: 0;
         }
 
         .mobile-input-group input {
@@ -394,6 +423,7 @@
             font-weight: 600;
             font-size: 16px;
             margin-right: 12px;
+            flex-shrink: 0;
         }
 
         .user-info {
@@ -495,6 +525,7 @@
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 20px;
+            background-color: #e2e8f0;
         }
 
         .treatment-image-box img {
@@ -586,6 +617,7 @@
             font-size: 22px;
             text-decoration: none;
             transition: background-color 0.2s;
+            flex-shrink: 0;
         }
 
         .whatsapp-icon:hover {
@@ -1093,6 +1125,7 @@
             font-weight: 700;
             color: white;
             opacity: 0.8;
+            z-index: 2;
         }
 
         .reel-logo img {
@@ -1370,6 +1403,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .call-clinic {
@@ -1575,6 +1609,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
             padding: 20px;
             font-size: 15px;
             font-weight: 700;
@@ -1593,6 +1628,7 @@
             font-size: 20px;
             font-weight: 600;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .faq-item[open] .faq-icon {
@@ -1745,6 +1781,7 @@
             font-size: 13px;
             margin-bottom: 12px;
             color: #cbd5e1;
+            word-break: break-word;
         }
 
         .contact-item i {
@@ -1753,6 +1790,7 @@
             margin-top: 3px;
             width: 16px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .footer-title {
@@ -1794,13 +1832,16 @@
             width: 100vw;
             height: 100vh;
             background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
             display: none; 
             justify-content: center;
             align-items: center;
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.25s ease;
+            overscroll-behavior: contain;
+            padding: 16px;
         }
 
         .modal-overlay.active {
@@ -1817,9 +1858,12 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             position: relative;
             max-height: 90vh;
+            max-height: 90dvh;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
             transform: translateY(20px) scale(0.95);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .modal-overlay.active .journey-modal {
@@ -1932,8 +1976,8 @@
         .progress-bar-fill {
             height: 100%;
             background-color: #22c55e;
-            width: 10%; /* Dynamic */
-            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy progress */
+            width: 10%;
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .profile-strength {
@@ -1945,7 +1989,7 @@
         }
 
         .step-content {
-            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes slideIn {
@@ -1987,6 +2031,7 @@
             font-weight: 600;
             color: #1e293b;
             border-right: 1px solid #cbd5e1;
+            flex-shrink: 0;
         }
 
         .wa-input-group input {
@@ -2008,14 +2053,13 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
         }
 
         .primary-btn:hover {
             background-color: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
         }
         
         .primary-btn:active {
@@ -2037,14 +2081,14 @@
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
             background: #ffffff;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .radio-item:hover {
             background: #f8fafc;
             border-color: #94a3b8;
-            transform: translateY(-1px);
         }
 
         .radio-item input[type="radio"] {
@@ -2062,7 +2106,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s;
+            transition: border-color 0.2s;
+            flex-shrink: 0;
         }
 
         .radio-circle::after {
@@ -2081,7 +2126,6 @@
             border-color: #3b82f6;
             background-color: #eff6ff;
             box-shadow: 0 0 0 1px #3b82f6;
-            transform: scale(1.02);
         }
 
         .radio-item.selected .radio-circle {
@@ -2104,6 +2148,7 @@
             color: #22c55e;
             font-size: 12px;
             font-weight: 700;
+            flex-shrink: 0;
         }
 
         .back-btn {
@@ -2117,12 +2162,11 @@
             margin-top: 10px;
             text-align: left;
             display: inline-block;
-            transition: color 0.2s, transform 0.2s;
+            transition: color 0.2s;
         }
 
         .back-btn:hover {
             color: #1e293b;
-            transform: translateX(-3px);
         }
 
         /* Step 10 Photo Upload */
@@ -2132,7 +2176,7 @@
             padding: 30px 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
             margin-bottom: 20px;
             background: #f8fafc;
         }
@@ -2238,6 +2282,7 @@
         .info-box i {
             color: #3b82f6;
             margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .info-box span {
@@ -2275,15 +2320,25 @@
 
         /* Responsive Design for Modal */
         @media (max-width: 500px) {
+            .modal-overlay { padding: 10px; }
             .journey-modal {
                 padding: 20px;
                 border-radius: 12px;
-                width: 95%;
+                width: 100%;
+                max-height: 92dvh;
             }
             .mascot-icon { font-size: 32px; }
             .speech-bubble { font-size: 12px; padding: 10px; }
         }
 
+        @media (max-height: 640px) {
+            .journey-modal {
+                max-height: 96dvh;
+                padding: 18px;
+            }
+            .mascot-area { min-height: 40px; margin-bottom: 15px; }
+            .progress-container { margin-bottom: 15px; }
+        }
 
         /* =========================================
            RESPONSIVE DESIGN (Main Page)
@@ -2318,6 +2373,14 @@
             .cta-buttons { flex-direction: column; align-items: center; }
             .btn-white, .btn-whatsapp { width: 100%; max-width: 300px; }
             .main-container, .reviews-wrapper, .treatments-section, .difference-section, .founders-section, .about-section, .steps-section, .patient-stories-section, .instagram-section, .clinics-section, .choose-clinic-section, .faq-section { margin-bottom: 40px; }
+
+            /* iOS: prevent auto-zoom on input focus */
+            .form-control,
+            .mobile-input-group input,
+            .wa-input-group input,
+            select.form-control {
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -2329,6 +2392,34 @@
             .form-section { padding: 15px; }
             .booking-card, .choose-item, .step-card { padding: 20px; }
             .cta-section, .footer-section { padding: 40px 15px; }
+            .difference-grid { padding: 0 15px; }
+            .treatment-image-box { height: 180px; }
+            .clinics-grid { gap: 35px 20px; }
+            .instagram-section { padding: 30px 15px 40px 15px; }
+            .founders-section { padding: 20px 15px 50px 15px; }
+        }
+
+        @media (max-width: 420px) {
+            body { padding: 15px 12px; }
+            h1 { font-size: 27px; }
+            .hero-section { padding: 28px 18px; }
+            .booking-card { padding: 16px; }
+            .reviews-title, .treatments-title, .difference-title, .founders-title, .about-title, .steps-title, .patient-stories-title, .instagram-title, .clinics-title, .choose-title, .faq-title { font-size: 22px; }
+            .cta-title { font-size: 21px; }
+            .btn-white, .btn-whatsapp { padding: 13px 20px; font-size: 14px; }
+            .clinic-actions { gap: 12px; }
+            .directions-btn { padding: 10px 20px; }
+            .features { gap: 12px; }
+            .feature-item { font-size: 13px; }
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
         }
     </style>
 </head>
@@ -2488,32 +2579,32 @@
 
         <div class="treatments-grid">
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600&auto=format&fit=crop" alt="Root Canal"><span class="image-tag">Painless</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600&auto=format&fit=crop" alt="Root Canal" loading="lazy" decoding="async"><span class="image-tag">Painless</span></div>
                 <div class="treatment-content"><h3>Root Canal Treatment</h3><p>Single-visit, painless RCT by endodontists.</p><div class="treatment-tags"><span class="tag-blue">Painless</span><span class="tag-green">Single Visit</span><span class="tag-orange">By Endodontists</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=600&auto=format&fit=crop" alt="Implants"><span class="image-tag blue-text">From ₹25,000*</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=600&auto=format&fit=crop" alt="Implants" loading="lazy" decoding="async"><span class="image-tag blue-text">From ₹25,000*</span></div>
                 <div class="treatment-content"><h3>Dental Implants</h3><p>Permanent teeth by a Harvard & Zurich-trained implantologist.</p><div class="treatment-tags"><span class="tag-blue">3D CT Planning</span><span class="tag-green">EMI Available</span><span class="tag-orange">10,000+ Cases</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Braces"><span class="image-tag">All Ages</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Braces" loading="lazy" decoding="async"><span class="image-tag">All Ages</span></div>
                 <div class="treatment-content"><h3>Braces & Aligners</h3><p>Metal braces to invisible aligners, with a digital preview.</p><div class="treatment-tags"><span class="tag-blue">Invisible Options</span><span class="tag-green">Digital Preview</span><span class="tag-orange">Orthodontists</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606265752439-1f18c629f164?q=80&w=600&auto=format&fit=crop" alt="Cosmetic"><span class="image-tag">Smile Makeover</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1606265752439-1f18c629f164?q=80&w=600&auto=format&fit=crop" alt="Cosmetic" loading="lazy" decoding="async"><span class="image-tag">Smile Makeover</span></div>
                 <div class="treatment-content"><h3>Cosmetic Dentistry</h3><p>Whitening, veneers and complete smile makeovers.</p><div class="treatment-tags"><span class="tag-blue">Whitening</span><span class="tag-green">Veneers</span><span class="tag-orange">Smile Design</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?q=80&w=600&auto=format&fit=crop" alt="Crowns"><span class="image-tag">CAD/CAM</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?q=80&w=600&auto=format&fit=crop" alt="Crowns" loading="lazy" decoding="async"><span class="image-tag">CAD/CAM</span></div>
                 <div class="treatment-content"><h3>Crowns & Bridges</h3><p>Precise, natural-looking crowns with a digital workflow.</p><div class="treatment-tags"><span class="tag-blue">Shade Matched</span><span class="tag-green">Zirconia Options</span><span class="tag-orange">Durable</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
             <div class="treatment-card">
-                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Dentures"><span class="image-tag">Digital</span></div>
+                <div class="treatment-image-box"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Dentures" loading="lazy" decoding="async"><span class="image-tag">Digital</span></div>
                 <div class="treatment-content"><h3>Dentures</h3><p>Comfortable, well-fitting dentures — including digital dentures.</p><div class="treatment-tags"><span class="tag-blue">Digital Dentures</span><span class="tag-green">Comfort Fit</span><span class="tag-orange">Implant-Supported</span></div></div>
                 <div class="treatment-action"><button class="book-btn">Book Consultation</button><a href="#" class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a></div>
             </div>
@@ -2545,7 +2636,7 @@
 
         <div class="founders-grid">
             <div class="founder-card">
-                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=300&auto=format&fit=crop" alt="Dr. Amit Anand"></div>
+                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=300&auto=format&fit=crop" alt="Dr. Amit Anand" loading="lazy" decoding="async"></div>
                 <div class="founder-info">
                     <h3 class="founder-name">Dr. Amit Anand</h3>
                     <div class="founder-role">CO-FOUNDER · IMPLANTOLOGIST & ENDODONTIST</div>
@@ -2554,7 +2645,7 @@
                 </div>
             </div>
             <div class="founder-card">
-                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop" alt="Dr. Arpita Anand"></div>
+                <div class="founder-image-box"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop" alt="Dr. Arpita Anand" loading="lazy" decoding="async"></div>
                 <div class="founder-info">
                     <h3 class="founder-name">Dr. Arpita Anand</h3>
                     <div class="founder-role">CO-FOUNDER · EXPERT DENTAL SURGEON</div>
@@ -2607,12 +2698,12 @@
         </div>
         <div class="stories-grid">
             <div class="story-card">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" alt="NRI Patients Video">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" alt="NRI Patients Video" loading="lazy" decoding="async">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="story-text-overlay"><span class="highlight-text">WHY REALTOOTH</span><br><span class="sub-text">IS THE FIRST CHOICE<br>OF NRI PATIENTS</span></div>
             </div>
             <div class="story-card">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Dental Implants Video">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Dental Implants Video" loading="lazy" decoding="async">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="story-text-overlay" style="bottom: 20px; left: 20px;"><span style="font-size: 12px; text-transform: uppercase; color: white; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Understanding</span><br><span style="font-size: 24px; font-weight: 800; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">Dental Implants</span></div>
             </div>
@@ -2630,11 +2721,11 @@
         </div>
         <div class="instagram-grid">
             <!-- Reels Data -->
-            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
-            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
-            <div class="reel-card blue"><div class="reel-logo" style="top: 15px; left: 15px; right: auto;">Realtooth</div><div class="blue-card-text-top">REALTOOTH CLINIC'S<br>BEFORE & AFTER<br>JOURNEY</div><div class="window-frame"><div class="window-header"><div class="dot-red"></div><div class="dot-yellow"></div><div class="dot-green"></div></div><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&auto=format&fit=crop" alt="Clinic Journey"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="blue-card-text-bottom">REALTOOTH DENTAL CLINIC</div></div>
-            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
-            <div class="reel-card diwali"><div class="reel-logo" style="color:#3b82f6;">Realtooth</div><div class="diwali-text"><h3>Ready for Diwali?</h3><p>Explore the Magic of<br>Smile Makeovers!</p></div><div class="diwali-img-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Cosmetic Dentistry"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="custom-bottom-text" style="color:#1e293b; bottom: 10px;">Cosmetic Dentistry</div></div>
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial" loading="lazy" decoding="async"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial" loading="lazy" decoding="async"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card blue"><div class="reel-logo" style="top: 15px; left: 15px; right: auto;">Realtooth</div><div class="blue-card-text-top">REALTOOTH CLINIC'S<br>BEFORE & AFTER<br>JOURNEY</div><div class="window-frame"><div class="window-header"><div class="dot-red"></div><div class="dot-yellow"></div><div class="dot-green"></div></div><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&auto=format&fit=crop" alt="Clinic Journey" loading="lazy" decoding="async"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="blue-card-text-bottom">REALTOOTH DENTAL CLINIC</div></div>
+            <div class="reel-card green"><div class="reel-logo">Realtooth</div><div class="polaroid-frame"><div class="tape"></div><div class="reel-image-container"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop" alt="Patient Testimonial" loading="lazy" decoding="async"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="polaroid-caption">Patient Testimonial</div></div><div class="reel-website">www.realtooth.in</div></div>
+            <div class="reel-card diwali"><div class="reel-logo" style="color:#3b82f6;">Realtooth</div><div class="diwali-text"><h3>Ready for Diwali?</h3><p>Explore the Magic of<br>Smile Makeovers!</p></div><div class="diwali-img-box"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop" alt="Cosmetic Dentistry" loading="lazy" decoding="async"><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div></div><div class="custom-bottom-text" style="color:#1e293b; bottom: 10px;">Cosmetic Dentistry</div></div>
             <div class="reel-card custom-bg seniors"><div class="reel-logo">Realtooth</div><div class="custom-text-overlay"><p>21 August<br>World Senior Citizen's Day</p><h3>Why<br>Dental Care<br>is Crucial<br>For Seniors</h3><p style="font-size:10px;">Inside RealTooth</p></div><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div><div class="custom-bottom-text">Seniors Care</div></div>
             <div class="reel-card custom-bg early"><div class="reel-logo">Realtooth</div><div class="custom-text-overlay"><p style="font-size:10px; text-transform:uppercase;">Importance of</p><h3>Early<br>Intervention</h3><p style="font-size:9px;">Treat Malalignment early<br>to avoid complicated</p></div><div class="ig-play-btn"><i class="fa-solid fa-play"></i></div><div class="custom-bottom-text">Early Intervention</div></div>
         </div>
@@ -3013,139 +3104,182 @@
          JOURNEY LOGIC (JavaScript)
          ========================================= -->
     <script>
-        // Prevent default form submission and open modal
+        /* ---------- Cached DOM references (faster than re-querying) ---------- */
+        var modalEl = document.getElementById('journey-modal');
+        var journeyHeader = document.querySelector('.journey-header');
+        var mascotArea = document.querySelector('.mascot-area');
+        var progressBox = document.querySelector('.progress-container');
+        var speechText = document.getElementById('speech-text');
+        var questionCount = document.getElementById('question-count');
+        var pointsDisplay = document.getElementById('points-display');
+        var progressFill = document.getElementById('progress-fill');
+        var profileStrength = document.getElementById('profile-strength');
+        var allSteps = document.querySelectorAll('.step-content');
+
+        /* ---------- Open modal (fast, no layout thrash) ---------- */
         function openJourneyModal(event) {
-            event.preventDefault();
-            const modal = document.getElementById('journey-modal');
-            modal.style.display = 'flex';
-            // Small delay to allow display:flex to apply before adding active class for transition
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-            
-            // Reset to step 1 on new open
+            if (event) event.preventDefault();
+
+            /* Restore parts that might be hidden after a previous finish */
+            journeyHeader.style.display = 'flex';
+            mascotArea.style.display = 'flex';
+            progressBox.style.display = 'block';
+
+            modalEl.style.display = 'flex';
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+
+            /* Use rAF instead of setTimeout -> smoother, no jank */
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    modalEl.classList.add('active');
+                });
+            });
+
             goToStep(1);
         }
 
-        // Logic for switching steps with smooth animations
+        /* ---------- Close modal ---------- */
+        function closeJourneyModal() {
+            modalEl.classList.remove('active');
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+            setTimeout(function () {
+                modalEl.style.display = 'none';
+            }, 250);
+        }
+
+        /* Close on backdrop click */
+        modalEl.addEventListener('click', function (e) {
+            if (e.target === modalEl) closeJourneyModal();
+        });
+
+        /* Close on Escape */
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modalEl.classList.contains('active')) {
+                closeJourneyModal();
+            }
+        });
+
+        /* ---------- Smooth speech bubble ---------- */
+        function animateSpeech(text) {
+            speechText.style.animation = 'none';
+            void speechText.offsetHeight; /* reflow to restart animation */
+            speechText.style.animation = 'popIn 0.4s ease-out';
+            speechText.textContent = text;
+        }
+
+        /* ---------- Step switching ---------- */
         function goToStep(step) {
-            // Hide all steps
-            document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
-            
-            // Show target step
-            const targetStep = document.getElementById('step-' + step);
+            /* Hide all steps */
+            for (var i = 0; i < allSteps.length; i++) {
+                allSteps[i].style.display = 'none';
+            }
+
+            /* Show target step with fresh animation */
+            var targetStep = document.getElementById('step-' + step);
             if (targetStep) {
-                // Remove and re-add animation class to trigger animation
                 targetStep.style.animation = 'none';
-                targetStep.offsetHeight; /* trigger reflow */
-                targetStep.style.animation = null; 
+                void targetStep.offsetHeight;
+                targetStep.style.animation = '';
                 targetStep.style.display = 'block';
             }
 
-            // Update Progress UI
-            const questionText = document.getElementById('question-count');
-            const pointsText = document.getElementById('points-display');
-            const progressFill = document.getElementById('progress-fill');
-            const profileStrength = document.getElementById('profile-strength');
-            const speechText = document.getElementById('speech-text');
-            const mascotIcon = document.querySelector('.mascot-icon');
+            /* Header / mascot / progress visibility */
+            if (step === 'final') {
+                journeyHeader.style.display = 'none';
+                mascotArea.style.display = 'none';
+                progressBox.style.display = 'none';
+                return;
+            } else {
+                journeyHeader.style.display = 'flex';
+                mascotArea.style.display = 'flex';
+                progressBox.style.display = 'block';
+            }
 
-            // Function to trigger speech bubble pop animation
-            const animateSpeech = (text) => {
-                speechText.style.animation = 'none';
-                speechText.offsetHeight; 
-                speechText.style.animation = 'popIn 0.4s ease-out';
-                speechText.innerText = text;
-            };
-
+            /* Progress UI updates */
             if (step === 1) {
-                questionText.innerText = "Question 1 of 10";
-                pointsText.innerText = "+ 0 pts";
+                questionCount.textContent = "Question 1 of 10";
+                pointsDisplay.textContent = "+ 0 pts";
                 progressFill.style.width = "10%";
-                profileStrength.innerText = "PROFILE STRENGTH: STARTING";
+                profileStrength.textContent = "PROFILE STRENGTH: STARTING";
                 animateSpeech("Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.");
             } else if (step === 2) {
-                questionText.innerText = "Question 2 of 10";
-                pointsText.innerText = "+ 10 pts";
+                questionCount.textContent = "Question 2 of 10";
+                pointsDisplay.textContent = "+ 10 pts";
                 progressFill.style.width = "20%";
-                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                profileStrength.textContent = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Locked in! Your plan lands straight on WhatsApp.");
             } else if (step === 3) {
-                questionText.innerText = "Question 3 of 10";
-                pointsText.innerText = "+ 20 pts";
+                questionCount.textContent = "Question 3 of 10";
+                pointsDisplay.textContent = "+ 20 pts";
                 progressFill.style.width = "30%";
-                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                profileStrength.textContent = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Aww — we're extra, extra gentle with kids.");
             } else if (step === '4-alignment') {
-                questionText.innerText = "Question 4 of 10";
-                pointsText.innerText = "+ 50 pts";
+                questionCount.textContent = "Question 4 of 10";
+                pointsDisplay.textContent = "+ 50 pts";
                 progressFill.style.width = "40%";
-                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                profileStrength.textContent = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Great news — cases like this transform beautifully.");
             } else if (step === 6) {
-                questionText.innerText = "Question 6 of 10";
-                pointsText.innerText = "+ 70 pts";
+                questionCount.textContent = "Question 6 of 10";
+                pointsDisplay.textContent = "+ 70 pts";
                 progressFill.style.width = "60%";
-                profileStrength.innerText = "PROFILE STRENGTH: STRONG";
+                profileStrength.textContent = "PROFILE STRENGTH: STRONG";
                 animateSpeech("Early action = easier, cheaper fix. Nice.");
             } else if (step === 7) {
-                questionText.innerText = "Question 7 of 10";
-                pointsText.innerText = "+ 84 pts";
+                questionCount.textContent = "Question 7 of 10";
+                pointsDisplay.textContent = "+ 84 pts";
                 progressFill.style.width = "70%";
-                profileStrength.innerText = "PROFILE STRENGTH: STRONG";
+                profileStrength.textContent = "PROFILE STRENGTH: STRONG";
                 animateSpeech("Perfect — we'll plan your slot around that.");
             } else if (step === 8) {
-                questionText.innerText = "Question 8 of 10";
-                pointsText.innerText = "+ 96 pts";
+                questionCount.textContent = "Question 8 of 10";
+                pointsDisplay.textContent = "+ 96 pts";
                 progressFill.style.width = "80%";
-                profileStrength.innerText = "PROFILE STRENGTH: ALMOST THERE";
+                profileStrength.textContent = "PROFILE STRENGTH: ALMOST THERE";
                 animateSpeech("Simple and straight — got it.");
             } else if (step === 9) {
-                questionText.innerText = "Question 9 of 10";
-                pointsText.innerText = "+ 100 pts";
+                questionCount.textContent = "Question 9 of 10";
+                pointsDisplay.textContent = "+ 100 pts";
                 progressFill.style.width = "90%";
-                profileStrength.innerText = "PROFILE STRENGTH: ALMOST THERE";
+                profileStrength.textContent = "PROFILE STRENGTH: ALMOST THERE";
                 animateSpeech("Perfect — we'll plan your slot around that.");
             } else if (step === 10) {
-                questionText.innerText = "Question 10 of 10";
-                pointsText.innerText = "+ 110 pts";
+                questionCount.textContent = "Question 10 of 10";
+                pointsDisplay.textContent = "+ 110 pts";
                 progressFill.style.width = "100%";
-                profileStrength.innerText = "PROFILE STRENGTH: PRIORITY PATIENT";
+                profileStrength.textContent = "PROFILE STRENGTH: PRIORITY PATIENT";
                 animateSpeech("Camera time! This one earns double points.");
-            } else if (step === 'final') {
-                // Hide header elements for final screen
-                document.querySelector('.journey-header').style.display = 'none';
-                document.querySelector('.mascot-area').style.display = 'none';
-                document.querySelector('.progress-container').style.display = 'none';
             }
         }
 
-        // Logic for selecting a radio option
+        /* ---------- Radio selection + auto advance ---------- */
+        var advanceTimer = null;
         function selectOption(labelElement, nextStep) {
-            // Remove 'selected' class from siblings
-            const siblings = labelElement.parentElement.querySelectorAll('.radio-item');
-            siblings.forEach(sib => sib.classList.remove('selected'));
-            
-            // Add 'selected' class to clicked item
+            var siblings = labelElement.parentElement.querySelectorAll('.radio-item');
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('selected');
+            }
             labelElement.classList.add('selected');
 
-            // Auto-advance to next step after a short delay for smooth UX
-            setTimeout(() => {
+            /* Clear any pending timer so rapid taps never double-advance */
+            if (advanceTimer) clearTimeout(advanceTimer);
+            advanceTimer = setTimeout(function () {
                 goToStep(nextStep);
-            }, 450); 
+            }, 320);
         }
 
-        // Function to finish journey and show final screen
+        /* ---------- Finish ---------- */
         function finishJourney() {
             goToStep('final');
-            // Specifically set the speech bubble to final message and restore header visibility for final screen
-            setTimeout(() => {
-                document.querySelector('.journey-header').style.display = 'flex';
-                document.querySelector('.mascot-area').style.display = 'flex';
-                document.querySelector('.progress-container').style.display = 'none'; // Keep progress hidden
-                const speechText = document.getElementById('speech-text');
-                speechText.innerText = "Aditya, you just made the doctor's job 10x easier. Priority unlocked!";
-            }, 100);
+
+            /* Final screen state: mascot + header back, progress hidden */
+            journeyHeader.style.display = 'flex';
+            mascotArea.style.display = 'flex';
+            progressBox.style.display = 'none';
+            speechText.textContent = "Aditya, you just made the doctor's job 10x easier. Priority unlocked!";
         }
     </script>
 </body>
