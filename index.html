@@ -2646,7 +2646,7 @@
                 <div class="step-title">What's bothering you the most?</div>
                 <div class="step-desc">Pick the closest one — this routes you to the right specialist.</div>
                 <div class="radio-list">
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'tooth_pain')">
                         <input type="radio" name="issue" value="tooth_pain">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Tooth pain</span>
@@ -2656,7 +2656,7 @@
                         <span class="radio-circle"></span>
                         <span class="radio-text">Missing teeth</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'crooked')">
                         <input type="radio" name="issue" value="crooked">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Crooked or gap teeth</span>
@@ -2678,6 +2678,59 @@
                     </label>
                 </div>
                 <button class="back-btn" onclick="goToStep(2)">Back</button>
+            </div>
+
+            <!-- Step 4 (Pain Severity) -->
+            <div class="step-content" id="step-4-pain" style="display: none;">
+                <div class="step-title">How bad is the pain right now?</div>
+                <div class="step-desc">This helps us decide how urgently to slot you in.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="pain_level" value="mild">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Mild — comes and goes</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="pain_level" value="moderate">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Moderate — hurts while eating</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="pain_level" value="severe">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Severe — keeps me up at night</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(3)">Back</button>
+            </div>
+
+            <!-- Step 4 (Alignment Issue) -->
+            <div class="step-content" id="step-4-alignment" style="display: none;">
+                <div class="step-title">What bothers you about the alignment?</div>
+                <div class="step-desc">Your orthodontist will pre-assess this.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="alignment_issue" value="crowded">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Crowded / overlapping teeth</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="alignment_issue" value="gaps">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Gaps between teeth</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="alignment_issue" value="pushed">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Teeth pushed forward</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 4)">
+                        <input type="radio" name="alignment_issue" value="bite">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Bite doesn't feel right</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(3)">Back</button>
             </div>
 
         </div>
@@ -2750,11 +2803,23 @@
                 progressFill.style.width = "33%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Aww — we're extra, extra gentle with kids.");
+            } else if (step === '4-pain') {
+                questionText.innerText = "Question 4 of 9";
+                pointsText.innerText = "+ 40 pts";
+                progressFill.style.width = "44%";
+                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                animateSpeech("Ouch, I feel that. Don't worry — painless help is coming.");
+            } else if (step === '4-alignment') {
+                questionText.innerText = "Question 4 of 10";
+                pointsText.innerText = "+ 50 pts";
+                progressFill.style.width = "44%";
+                profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
+                animateSpeech("Great news — cases like this transform beautifully.");
             }
         }
 
         // Logic for selecting a radio option
-        function selectOption(labelElement, stepNumber) {
+        function selectOption(labelElement, stepNumber, value) {
             // Remove 'selected' class from siblings
             const siblings = labelElement.parentElement.querySelectorAll('.radio-item');
             siblings.forEach(sib => sib.classList.remove('selected'));
@@ -2766,9 +2831,14 @@
             setTimeout(() => {
                 if (stepNumber === 2) {
                     goToStep(3);
+                } else if (stepNumber === 3) {
+                    if (value === 'tooth_pain') {
+                        goToStep('4-pain');
+                    } else if (value === 'crooked') {
+                        goToStep('4-alignment');
+                    }
                 }
-                // If there was a step 4, we would add it here. For now, we stop at 3.
-            }, 450); // Increased delay slightly to let the user enjoy the selection animation
+            }, 450);
         }
     </script>
 </body>
