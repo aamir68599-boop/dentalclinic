@@ -2097,6 +2097,13 @@
             font-size: 14px;
             font-weight: 600;
             color: #1e293b;
+            flex: 1;
+        }
+
+        .bonus-badge {
+            color: #22c55e;
+            font-size: 12px;
+            font-weight: 700;
         }
 
         .back-btn {
@@ -2116,6 +2123,154 @@
         .back-btn:hover {
             color: #1e293b;
             transform: translateX(-3px);
+        }
+
+        /* Step 10 Photo Upload */
+        .upload-box {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            background: #f8fafc;
+        }
+
+        .upload-box:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .upload-icon {
+            font-size: 32px;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+
+        .upload-text-main {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .upload-text-sub {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .skip-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: color 0.2s;
+        }
+
+        .skip-btn:hover {
+            color: #1e293b;
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        /* Final Success Screen */
+        .final-screen {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .star-circle {
+            width: 70px;
+            height: 70px;
+            background-color: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .final-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .final-points {
+            font-size: 14px;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 20px;
+        }
+
+        .final-text {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background-color: #f0f9ff;
+            border: 1px solid #e0f2fe;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .info-box i {
+            color: #3b82f6;
+            margin-top: 2px;
+        }
+
+        .info-box span {
+            font-size: 12px;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .insta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .urgent-text {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .urgent-text a {
+            color: #1e293b;
+            font-weight: 600;
+            text-decoration: none;
         }
 
         /* Responsive Design for Modal */
@@ -2597,11 +2752,11 @@
             <!-- Progress -->
             <div class="progress-container">
                 <div class="progress-text-row">
-                    <span id="question-count">Question 1 of 9</span>
+                    <span id="question-count">Question 1 of 10</span>
                     <span class="points-badge" id="points-display">+ 0 pts</span>
                 </div>
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 11%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 10%;"></div>
                 </div>
                 <div class="profile-strength" id="profile-strength">PROFILE STRENGTH: STARTING</div>
             </div>
@@ -2651,7 +2806,7 @@
                         <span class="radio-circle"></span>
                         <span class="radio-text">Tooth pain</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'goto6')">
                         <input type="radio" name="issue" value="missing_teeth">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Missing teeth</span>
@@ -2661,17 +2816,17 @@
                         <span class="radio-circle"></span>
                         <span class="radio-text">Crooked or gap teeth</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'goto6')">
                         <input type="radio" name="issue" value="yellow">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Yellow or stained teeth</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'goto6')">
                         <input type="radio" name="issue" value="bleeding">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Bleeding gums</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 3)">
+                    <label class="radio-item" onclick="selectOption(this, 3, 'goto6')">
                         <input type="radio" name="issue" value="checkup">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Check-up / cleaning</span>
@@ -2685,17 +2840,17 @@
                 <div class="step-title">How bad is the pain right now?</div>
                 <div class="step-desc">This helps us decide how urgently to slot you in.</div>
                 <div class="radio-list">
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="pain_level" value="mild">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Mild — comes and goes</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="pain_level" value="moderate">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Moderate — hurts while eating</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="pain_level" value="severe">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Severe — keeps me up at night</span>
@@ -2709,28 +2864,170 @@
                 <div class="step-title">What bothers you about the alignment?</div>
                 <div class="step-desc">Your orthodontist will pre-assess this.</div>
                 <div class="radio-list">
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="alignment_issue" value="crowded">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Crowded / overlapping teeth</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="alignment_issue" value="gaps">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Gaps between teeth</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="alignment_issue" value="pushed">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Teeth pushed forward</span>
                     </label>
-                    <label class="radio-item" onclick="selectOption(this, 4)">
+                    <label class="radio-item" onclick="selectOption(this, 'goto6')">
                         <input type="radio" name="alignment_issue" value="bite">
                         <span class="radio-circle"></span>
                         <span class="radio-text">Bite doesn't feel right</span>
                     </label>
                 </div>
                 <button class="back-btn" onclick="goToStep(3)">Back</button>
+            </div>
+
+            <!-- Step 6: Dentist History -->
+            <div class="step-content" id="step-6" style="display: none;">
+                <div class="step-title">Have you seen a dentist about this?</div>
+                <div class="step-desc">No judgement — most people wait too long.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 7)">
+                        <input type="radio" name="dentist_history" value="recently">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Yes, recently</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 7)">
+                        <input type="radio" name="dentist_history" value="long_back">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Yes, long back</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 7)">
+                        <input type="radio" name="dentist_history" value="first_step">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">No, this is my first step</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep('4-pain')">Back</button>
+            </div>
+
+            <!-- Step 7: Urgency -->
+            <div class="step-content" id="step-7" style="display: none;">
+                <div class="step-title">How soon do you want this sorted?</div>
+                <div class="step-desc">We'll prioritise your slot accordingly.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 8)">
+                        <input type="radio" name="urgency" value="asap">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">As soon as possible</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 8)">
+                        <input type="radio" name="urgency" value="2weeks">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Within 2 weeks</span>
+                        <span class="bonus-badge">+10</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 8)">
+                        <input type="radio" name="urgency" value="month">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Sometime this month</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 8)">
+                        <input type="radio" name="urgency" value="research">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Just researching for now</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(6)">Back</button>
+            </div>
+
+            <!-- Step 8: EMI -->
+            <div class="step-content" id="step-8" style="display: none;">
+                <div class="step-title">Would easy EMI options help?</div>
+                <div class="step-desc">Available on major treatments, subject to eligibility.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 9)">
+                        <input type="radio" name="emi" value="yes">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Yes, tell me the options</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 9)">
+                        <input type="radio" name="emi" value="no">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">No, not needed</span>
+                        <span class="bonus-badge">+10</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 9)">
+                        <input type="radio" name="emi" value="maybe">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Maybe — depends on cost</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(7)">Back</button>
+            </div>
+
+            <!-- Step 9: Time to reach -->
+            <div class="step-content" id="step-9" style="display: none;">
+                <div class="step-title">Best time to reach you?</div>
+                <div class="step-desc">We'll call / WhatsApp only in this window.</div>
+                <div class="radio-list">
+                    <label class="radio-item" onclick="selectOption(this, 10)">
+                        <input type="radio" name="time_window" value="morning">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Morning (9 am – 12 pm)</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 10)">
+                        <input type="radio" name="time_window" value="afternoon">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Afternoon (12 – 4 pm)</span>
+                    </label>
+                    <label class="radio-item" onclick="selectOption(this, 10)">
+                        <input type="radio" name="time_window" value="evening">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text">Evening (4 – 8 pm)</span>
+                    </label>
+                </div>
+                <button class="back-btn" onclick="goToStep(8)">Back</button>
+            </div>
+
+            <!-- Step 10: Photo Upload -->
+            <div class="step-content" id="step-10" style="display: none;">
+                <div class="step-title">One last thing — a quick smile photo</div>
+                <div class="step-desc">Our specialist pre-assesses your case before you even arrive. Any photo is fine — front camera works great.</div>
+                <div class="upload-box" onclick="finishJourney()">
+                    <i class="fa-solid fa-camera upload-icon"></i>
+                    <div class="upload-text-main">Tap to take or upload a photo</div>
+                    <div class="upload-text-sub">Smile naturally, front teeth visible. Any size works.</div>
+                </div>
+                <button class="primary-btn" onclick="finishJourney()">Finish</button>
+                <div class="action-row">
+                    <button class="back-btn" onclick="goToStep(9)">Back</button>
+                    <button class="skip-btn" onclick="finishJourney()">Skip this step</button>
+                </div>
+            </div>
+
+            <!-- Final Success Screen -->
+            <div class="step-content final-screen" id="step-final" style="display: none;">
+                <div class="star-circle">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="final-title">You are now a Priority Patient</h3>
+                <div class="final-points"><i class="fa-solid fa-check"></i> 110 points earned</div>
+                <p class="final-text">Your answers are with our team — the right specialist will review your case and reach you on WhatsApp in your preferred window.</p>
+                
+                <div class="info-box">
+                    <i class="fa-regular fa-clock"></i>
+                    <span><strong>What happens next:</strong> confirmation call, then your visit with a clear, written cost estimate.</span>
+                </div>
+
+                <p class="final-text" style="font-size:12px;">Till then, see real smile transformations from our clinics:</p>
+                
+                <a href="#" class="insta-btn">
+                    <i class="fa-brands fa-instagram"></i> Follow us on Instagram
+                </a>
+
+                <p class="urgent-text">In pain right now? <a href="#">WhatsApp us for an urgent slot</a></p>
             </div>
 
         </div>
@@ -2786,40 +3083,75 @@
             };
 
             if (step === 1) {
-                questionText.innerText = "Question 1 of 9";
+                questionText.innerText = "Question 1 of 10";
                 pointsText.innerText = "+ 0 pts";
-                progressFill.style.width = "11%";
+                progressFill.style.width = "10%";
                 profileStrength.innerText = "PROFILE STRENGTH: STARTING";
                 animateSpeech("Nice to meet you, Aditya! Let's start easy — confirm your WhatsApp number.");
             } else if (step === 2) {
-                questionText.innerText = "Question 2 of 9";
+                questionText.innerText = "Question 2 of 10";
                 pointsText.innerText = "+ 10 pts";
-                progressFill.style.width = "22%";
+                progressFill.style.width = "20%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Locked in! Your plan lands straight on WhatsApp.");
             } else if (step === 3) {
-                questionText.innerText = "Question 3 of 9";
+                questionText.innerText = "Question 3 of 10";
                 pointsText.innerText = "+ 20 pts";
-                progressFill.style.width = "33%";
+                progressFill.style.width = "30%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Aww — we're extra, extra gentle with kids.");
             } else if (step === '4-pain') {
-                questionText.innerText = "Question 4 of 9";
+                questionText.innerText = "Question 4 of 10";
                 pointsText.innerText = "+ 40 pts";
-                progressFill.style.width = "44%";
+                progressFill.style.width = "40%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Ouch, I feel that. Don't worry — painless help is coming.");
             } else if (step === '4-alignment') {
                 questionText.innerText = "Question 4 of 10";
                 pointsText.innerText = "+ 50 pts";
-                progressFill.style.width = "44%";
+                progressFill.style.width = "40%";
                 profileStrength.innerText = "PROFILE STRENGTH: GOOD START";
                 animateSpeech("Great news — cases like this transform beautifully.");
+            } else if (step === 6) {
+                questionText.innerText = "Question 6 of 10";
+                pointsText.innerText = "+ 70 pts";
+                progressFill.style.width = "60%";
+                profileStrength.innerText = "PROFILE STRENGTH: STRONG";
+                animateSpeech("Early action = easier, cheaper fix. Nice.");
+            } else if (step === 7) {
+                questionText.innerText = "Question 7 of 10";
+                pointsText.innerText = "+ 84 pts";
+                progressFill.style.width = "70%";
+                profileStrength.innerText = "PROFILE STRENGTH: STRONG";
+                animateSpeech("Perfect — we'll plan your slot around that.");
+            } else if (step === 8) {
+                questionText.innerText = "Question 8 of 10";
+                pointsText.innerText = "+ 96 pts";
+                progressFill.style.width = "80%";
+                profileStrength.innerText = "PROFILE STRENGTH: ALMOST THERE";
+                animateSpeech("Simple and straight — got it.");
+            } else if (step === 9) {
+                questionText.innerText = "Question 9 of 10";
+                pointsText.innerText = "+ 100 pts";
+                progressFill.style.width = "90%";
+                profileStrength.innerText = "PROFILE STRENGTH: ALMOST THERE";
+                animateSpeech("Perfect — we'll plan your slot around that.");
+            } else if (step === 10) {
+                questionText.innerText = "Question 10 of 10";
+                pointsText.innerText = "+ 110 pts";
+                progressFill.style.width = "100%";
+                profileStrength.innerText = "PROFILE STRENGTH: PRIORITY PATIENT";
+                animateSpeech("Camera time! This one earns double points.");
+            } else if (step === 'final') {
+                // Hide header elements for final screen
+                document.querySelector('.journey-header').style.display = 'none';
+                document.querySelector('.mascot-area').style.display = 'none';
+                document.querySelector('.progress-container').style.display = 'none';
             }
         }
 
         // Logic for selecting a radio option
-        function selectOption(labelElement, stepNumber, value) {
+        function selectOption(labelElement, nextStep) {
             // Remove 'selected' class from siblings
             const siblings = labelElement.parentElement.querySelectorAll('.radio-item');
             siblings.forEach(sib => sib.classList.remove('selected'));
@@ -2829,16 +3161,25 @@
 
             // Auto-advance to next step after a short delay for smooth UX
             setTimeout(() => {
-                if (stepNumber === 2) {
-                    goToStep(3);
-                } else if (stepNumber === 3) {
-                    if (value === 'tooth_pain') {
-                        goToStep('4-pain');
-                    } else if (value === 'crooked') {
-                        goToStep('4-alignment');
-                    }
+                if (nextStep === 'goto6') {
+                    goToStep(6);
+                } else {
+                    goToStep(nextStep);
                 }
-            }, 450);
+            }, 450); 
+        }
+
+        // Function to finish journey and show final screen
+        function finishJourney() {
+            goToStep('final');
+            // Specifically set the speech bubble to final message and restore header visibility for final screen
+            setTimeout(() => {
+                document.querySelector('.journey-header').style.display = 'flex';
+                document.querySelector('.mascot-area').style.display = 'flex';
+                document.querySelector('.progress-container').style.display = 'none'; // Keep progress hidden
+                const speechText = document.getElementById('speech-text');
+                speechText.innerText = "Aditya, you just made the doctor's job 10x easier. Priority unlocked!";
+            }, 100);
         }
     </script>
 </body>
